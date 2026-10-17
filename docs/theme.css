@@ -7,10 +7,11 @@
 .theme-toggle:hover { background:#e9dfee; }
 :root[data-theme="light"] { --ink:#425779; --cream:#f8fbff; --lavender:#dbe9fa; --line:#a8bdd7; --studio-bg:#f8fbff; --studio-ink:#536c8a; --studio-muted:#7e99b4; --studio-accent:#88afd8; --studio-soft:#e2edf9; --studio-line:#d7e4f2; --studio-bar:#e5eef9; --record-outer:#7e9fbd; --record-inner:#b6d7ee; --record-label:#e6f4fc; }
 :root[data-theme="light"] body { background-color:#dceafb; }
-:root[data-theme="light"] body:has(.music-journal) { background-image:linear-gradient(#91b1db12,#91b1db12),url('assets/Cozy%20Sunrise%20Study%20by%20the%20River.png'); }
+:root[data-theme="light"] body:has(.music-journal) { background-image:linear-gradient(#91b1db12,#91b1db12),url('assets/daylight-desk-matched.png'); }
 :root[data-theme="light"] .wallpaper {
-  --wallpaper-image: url('assets/Cozy%20Sunrise%20Study%20by%20the%20River.png');
+  --wallpaper-image: url('assets/daylight-desk-matched.png');
   --wallpaper-tint: transparent;
+  /* Daylight edit of the night artwork, using the same framing and crop. */
 }
 :root[data-theme="light"] .theme-toggle, :root[data-theme="light"] .clock-widget { background:#f7fbfff0; border-color:#b3c9e0; color:#506889; }
 :root[data-theme="light"] .theme-toggle:hover { background:#e0edfc; }
