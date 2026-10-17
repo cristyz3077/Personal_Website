@@ -134,17 +134,3 @@ audio.addEventListener('ended',()=>{
 });
 audio.addEventListener('error',()=>{isBuffering = false;disc.classList.remove('is-spinning');setStatus('This audio couldn’t load. Please refresh and try again.');});
 window.addEventListener('pagehide',()=>audio.pause());
-
-// Store the music theme so the library and listening page stay in sync.
-function setMusicTheme(theme) {
-  theme = theme === 'blue' ? 'blue' : 'lavender';
-  document.documentElement.dataset.musicTheme = theme;
-  document.querySelectorAll('[data-music-theme]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.musicTheme === theme)));
-  document.querySelector('meta[name="theme-color"]').content = theme === 'blue' ? '#dceef8' : '#e5ddeb';
-  try { localStorage.setItem('cristy-music-theme',theme); } catch {}
-}
-let storedTheme;
-try {storedTheme = localStorage.getItem('cristy-music-theme');}catch{}
-setMusicTheme(storedTheme);
-document.querySelectorAll('[data-music-theme]').forEach(button=>button.addEventListener('click',()=>setMusicTheme(button.dataset.musicTheme)));
-window.addEventListener('storage',event=>{if(event.key === 'cristy-music-theme')setMusicTheme(event.newValue);});

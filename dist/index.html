@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="projects.css">
   <link rel="stylesheet" href="resume.css">
   <link rel="stylesheet" href="contact.css">
-</head>
+  <link rel="stylesheet" href="explorer.css">
+  <link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="power.css"><script src="theme.js"></script></head>
 <body>
 <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
  <symbol id="i-about" viewBox="0 0 64 64"><path fill="#c3c3dd" d="M10 14h15l5-6h17l6 9v36H10z"/><rect x="7" y="18" width="49" height="39" rx="6" fill="#f5dfba"/><path d="M22 34v7m20-7v7M28 43q5 6 10 0M19 28l5-3m17 0 5 3"/><path d="M14 37v6m35-6v6" stroke="#d6a7ab"/></symbol>
@@ -25,6 +26,7 @@
  <symbol id="i-travel" viewBox="0 0 64 64"><path fill="#c7d0b1" d="M7 18v-6q0-4 5-4h15l7 8h20q4 0 4 5v30q0 5-5 5H11q-4 0-4-5z"/><path fill="#e6e9cb" d="M7 23q0-4 4-4h44q4 0 3 5l-4 28q0 4-5 4H8z"/><path fill="#c4b4d5" d="M40 29q-10 0-8 9 2 6 8 10 7-5 8-10 2-9-8-9z"/><circle cx="40" cy="36" r="3" fill="#faf3df"/></symbol>
  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></symbol>
  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2 8q10-9 20 0M5 12q7-6 14 0M8 16q4-3 8 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></symbol>
+ <symbol id="i-explorer" viewBox="0 0 64 64"><path fill="#c7d0b1" d="M6 16q0-5 5-5h16l7 7h19q5 0 5 5v25q0 5-5 5H11q-5 0-5-5z"/><path fill="#f8f3e9" d="M6 26q0-4 4-4h45q4 0 3 5l-4 20q-1 4-5 4H9q-4 0-4-5z"/></symbol>
 </svg>
 <main class="desktop" aria-label="Portfolio desktop">
   <div class="wallpaper" aria-hidden="true"></div>
@@ -43,18 +45,19 @@
     <button class="desktop-icon travel-folder" data-app="travel"><svg><use href="#i-travel"/></svg><span>Travel With Me</span></button>
   </nav>
   <section class="welcome" aria-label="Welcome"><p>hi, welcome to my little<br>corner of the internet! ♡</p><span class="tiny-star" aria-hidden="true">✧</span></section>
-  <aside class="clock-widget" aria-label="Current date and time"><span id="date"></span><time id="widget-time"></time></aside>
+  <div class="desktop-clock"><button class="theme-toggle" data-theme-toggle aria-label="Switch to light mode" aria-pressed="false"><span data-theme-icon aria-hidden="true">☀</span><span data-theme-label>Light mode</span></button><aside class="clock-widget" aria-label="Current date and time"><span id="date"></span><time id="widget-time"></time></aside></div>
   <button class="sticky-note" data-app="about" aria-label="Read more about me"><span class="pin" aria-hidden="true"></span><span>a little space for<br>things I make,<br>things I learn,<br>and everything<br>in between ♡</span><span class="cat-doodle" aria-hidden="true">／ᐠ｡ꞈ｡ᐟ＼</span></button>
   <p class="desktop-hint">make yourself at home <span>↖</span></p>
 </main>
 <section id="start-menu" class="start-menu" aria-label="Start menu" hidden>
-  <p class="menu-eyebrow">WELCOME TO MY LITTLE CORNER</p><h2>Stay a little while ♡</h2>
+  <p class="menu-eyebrow">CristyOS</p><h2>Stay a little while ♡</h2>
   <div id="menu-apps"></div><p id="no-results" hidden>No windows found. Try “projects”.</p>
-  <footer><span class="status-dot"></span> a work in progress, like all good things</footer>
+  <footer class="start-footer"><span class="start-status"><span class="status-dot"></span> a work in progress ♡</span><div class="power-menu-wrap"><button id="power-menu-button" class="power-menu-button" aria-expanded="false" aria-controls="power-options"><span aria-hidden="true">⏻</span> Power</button><div id="power-options" class="power-options" hidden><button data-power-action="shutdown"><span aria-hidden="true">⏻</span> Shut down</button><button data-power-action="restart"><span aria-hidden="true">↻</span> Restart</button></div></div></footer>
 </section>
 <footer class="taskbar">
   <button id="start-button" class="start-button" aria-expanded="false" aria-controls="start-menu"><svg><use href="#i-star"/></svg><span>Start</span></button>
   <label class="search"><svg><use href="#i-search"/></svg><input id="search" type="search" placeholder="Type something…" aria-label="Find a portfolio window" autocomplete="off"></label>
+  <button id="explorer-button" class="explorer-launcher" data-app="explorer" aria-label="Open File Explorer" title="File Explorer"><svg aria-hidden="true"><use href="#i-explorer"/></svg><span>Files</span></button>
   <button id="active-app" class="active-app" hidden></button>
   <div class="system-tray"><svg class="wifi" aria-label="Cozy and connected" role="img"><use href="#i-wifi"/></svg><button id="sound-button" title="Turn ambient sound on" aria-label="Turn ambient sound on" aria-pressed="false">♫<span class="sound-off">×</span></button><time id="tray-time"></time><span class="battery" aria-label="Fully charged" role="img"><i></i></span></div>
 </footer>
@@ -62,9 +65,11 @@
   <header class="window-bar"><div><svg id="window-icon"><use href="#i-about"/></svg><span id="window-title"></span></div><div class="window-controls"><button id="minimize" aria-label="Minimize window">−</button><button id="close-window" aria-label="Close window">×</button></div></header>
   <div id="window-content" class="window-content"></div>
 </dialog>
+<dialog id="power-screen" aria-labelledby="power-heading" aria-describedby="power-message"><div class="power-screen-content"><div id="power-spinner" class="power-spinner" aria-hidden="true"></div><svg id="power-moon" class="power-moon" viewBox="0 0 72 72" aria-hidden="true" hidden><path d="M49 47A25 25 0 0 1 26 9a25 25 0 1 0 31 30 24 24 0 0 1-8 8Z"/><path d="M54 8v12m-6-6h12M62 30v6m-3-3h6"/></svg><h1 id="power-heading" tabindex="-1">shutting down…</h1><p id="power-message" role="status" aria-live="polite">saving little memories ♡</p><button id="power-on-button" hidden><span aria-hidden="true">⏻</span> Power on</button></div></dialog>
 <script src="about.js"></script>
 <script src="projects.js"></script>
 <script src="contact.js"></script>
 <script src="app.js"></script>
+<script src="power.js"></script>
 </body>
 </html>

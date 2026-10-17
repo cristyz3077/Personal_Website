@@ -35,7 +35,7 @@ function projectMetadata(project, card = false) {
 }
 const projectsPage = `<div class="projects-browser"><nav class="project-sidebar" aria-label="Project categories">${projectCategories.map((category,index)=>`<button class="project-filter" data-category="${category}" aria-pressed="${index===0}"><svg aria-hidden="true"><use href="#i-projects"/></svg><span>${category}</span></button>`).join('')}<div class="sidebar-flower" aria-hidden="true"><svg viewBox="0 0 65 95"><path d="M33 89V45" stroke="#8c9b91" stroke-width="4"/><path d="M32 78Q9 75 15 58q18 2 17 20M34 85q25-8 20-25-21 3-20 25" fill="#a5b4a7" stroke="#8c9b91" stroke-width="2"/><path d="M18 17q7-13 14-1 9-14 16 0l-1 19q-12 24-27 0Z" fill="#d4afc5" stroke="#b397b4" stroke-width="2"/></svg></div></nav><section class="project-workspace" aria-label="Projects"><div class="project-grid">${projectItems.map(project=>`<article class="portfolio-card" data-project-card="${project.id}"><div class="project-cover">${projectArtwork[project.id]}</div><h2>${project.title}</h2>${projectMetadata(project, true)}<p>${project.description}</p><button class="view-project" data-project="${project.id}">View Project <span aria-hidden="true">→</span><span class="sr-only">: ${project.title}</span></button></article>`).join('')}</div><section id="project-detail" class="project-detail" hidden aria-label="Project details"></section><p id="project-filter-status" class="sr-only" role="status"></p></section></div>`;
 
-function setupProjects() {
+function setupProjects(initialProjectId) {
   const root = document.querySelector('.projects-browser');
   const grid = root.querySelector('.project-grid');
   const detail = root.querySelector('#project-detail');
@@ -70,4 +70,8 @@ function setupProjects() {
       root.querySelector('.portfolio-card:not([hidden]) .view-project')?.focus();
     }
   });
+  if (initialProjectId) {
+    const projectButton = root.querySelector(`[data-project="${CSS.escape(initialProjectId)}"]`);
+    if (projectButton) projectButton.click();
+  }
 }

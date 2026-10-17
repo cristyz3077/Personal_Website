@@ -1,6 +1,4 @@
 :root { --studio-bg:#faf6ef; --studio-ink:#81708f; --studio-muted:#ac9bb7; --studio-accent:#a993c3; --studio-soft:#eae1f0; --studio-line:#e2d8e6; --studio-bar:#e6deed; --record-outer:#9585aa; --record-inner:#c8b6dd; --record-label:#e2d5ee; }
-:root[data-music-theme="blue"] { --studio-bg:#f5fbff; --studio-ink:#657f99; --studio-muted:#8eaac0; --studio-accent:#87b4d5; --studio-soft:#e0eef8; --studio-line:#d5e5f0; --studio-bar:#e1eef8; --record-outer:#7e9fbd; --record-inner:#b6d7ee; --record-label:#e6f4fc; }
-:root[data-music-theme="blue"] body { background-image:linear-gradient(#88b3d84d,#bfd5e666),url('assets/twilight-desk.png'); }
 button,input,a { -webkit-tap-highlight-color:transparent; }
 button { font:inherit; cursor:pointer; color:inherit; }
 button:focus-visible,input:focus-visible,a:focus-visible { outline:3px solid var(--studio-accent); outline-offset:4px; }
