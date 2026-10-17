@@ -182,7 +182,14 @@ function setupExplorer() {
       type.textContent = node.kind === 'folder' ? 'Folder' : node.href ? 'Web page' : 'App';
       row.append(icon, label, type);
       list.append(row);
-      row.addEventListener('click', () => {
+      row.addEventListener('click', event => {
+        // Touch users open with one tap; native keyboard clicks open too.
+        const touchActivation = event.pointerType === 'touch' || event.pointerType === 'pen'
+          || (!event.pointerType && window.matchMedia('(pointer: coarse)').matches);
+        if (touchActivation || event.detail === 0) {
+          activate(node, parentPath);
+          return;
+        }
         explorerSelected = node.id;
         list.querySelectorAll('.explorer-item').forEach(item => item.setAttribute('aria-selected', String(item === row)));
         document.querySelector('#explorer-status').textContent = `${node.name} selected`;
