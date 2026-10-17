@@ -1,4 +1,4 @@
-const apps = {about:'About Me', projects:'Projects', terminal:'Terminal', resume:'Resume', contact:'Contact'};
+const apps = {about:'About Me', projects:'Projects', terminal:'Terminal', resume:'Resume', contact:'Contact', music:'Music', travel:'Travel With Me'};
 const dialog = document.querySelector('#app-window');
 const content = document.querySelector('#window-content');
 const menu = document.querySelector('#start-menu');
@@ -7,6 +7,7 @@ const search = document.querySelector('#search');
 const active = document.querySelector('#active-app');
 let currentApp = null;
 const pages = {
+  travel: `<div class="travel-page"><span class="eyebrow">POSTCARDS & LITTLE DETOURS</span><h1>travel with me ♡</h1><p>A little journal for city wanderings, new places, and memories along the way.</p><div class="travel-postcard"><span aria-hidden="true">✧</span><h2>The first postcard is on its way</h2><p>Photos and stories from my adventures will live here.</p><span class="postcard-stamp" aria-hidden="true">♡</span></div></div>`,
   about: aboutPage,
   projects: `<span class="eyebrow">THE THINGS I MAKE</span><h1>A few little projects</h1><article class="project-card"><span class="eyebrow">01 / THIS WEBSITE</span><h2>A desktop with a view</h2><p>A personal corner built with HTML, CSS, and JavaScript. Open a window, try the terminal, and make yourself at home.</p></article><article class="project-card"><span class="eyebrow">02 / YOUR NEXT PROJECT</span><h2>Something worth sharing</h2><p>Add a project title, what you built, what you learned, and a link to explore it.</p></article><p class="placeholder">This is your project shelf. Replace the example above with your own work when you’re ready.</p>`,
   resume: `<span class="eyebrow">MY JOURNEY SO FAR</span><h1>A little about my path</h1><p class="placeholder">Your resume hasn’t been added yet.</p><h2>Education</h2><p>Add your school, degree, and graduation year.</p><h2>Experience</h2><p>Share your work, internships, clubs, or personal projects.</p><h2>Skills</h2><p>Include the tools and technologies you enjoy working with.</p>`,
@@ -16,6 +17,13 @@ const pages = {
 function toggleMenu(show) { menu.hidden = !show; start.setAttribute('aria-expanded', String(show)); }
 function openApp(app) {
   if (!apps[app]) return;
+  if (app === 'music') {
+    if (dialog.open) { dialog.close(); currentApp = null; active.hidden = true; }
+    toggleMenu(false);
+    toggleMusic(document.querySelector('#music-papers').hidden);
+    return;
+  }
+  toggleMusic(false);
   const preserve = app === currentApp;
   currentApp = app;
   toggleMenu(false);
@@ -25,7 +33,6 @@ function openApp(app) {
   document.querySelector('#window-title').textContent = app === 'about' ? 'about_me.exe' : apps[app];
   document.querySelector('#window-icon use').setAttribute('href', '#i-' + app);
   if (!preserve) content.innerHTML = pages[app];
-  if (app === 'about' && !preserve) setupAboutTabs();
   active.textContent = apps[app]; active.hidden = false;
   if (!dialog.open) dialog.showModal();
   if(app === 'terminal') {
@@ -40,7 +47,16 @@ active.addEventListener('click', () => openApp(currentApp));
 dialog.addEventListener('cancel', () => { currentApp=null; active.hidden=true; });
 start.addEventListener('click', () => { toggleMenu(menu.hidden); if(!menu.hidden) filterApps(search.value); });
 document.addEventListener('click', e => { if(!e.target.closest('#start-menu, #start-button, .search')) toggleMenu(false); });
-document.addEventListener('keydown', e => { if(e.key === 'Escape') toggleMenu(false); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') { toggleMenu(false); if(!document.querySelector('#music-papers').hidden) { toggleMusic(false); document.querySelector('#music-folder-button').focus(); } } });
+function toggleMusic(show) {
+  const papers = document.querySelector('#music-papers');
+  papers.hidden = !show;
+  document.querySelector('#music-folder-button').setAttribute('aria-expanded', String(show));
+  if (show) papers.querySelector('a').focus();
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.music-folder, [data-app="music"]')) toggleMusic(false);
+});
 const menuApps=document.querySelector('#menu-apps');
 for (const [key,label] of Object.entries(apps)) { const button=document.createElement('button');button.className='menu-item';button.dataset.app=key;button.innerHTML=`<svg aria-hidden="true"><use href="#i-${key}"/></svg><span>${label}</span>`;menuApps.append(button); }
 function filterApps(query) { let count=0; for(const b of menuApps.children) { b.hidden=!b.textContent.toLowerCase().includes(query.toLowerCase().trim());if(!b.hidden)count++; } document.querySelector('#no-results').hidden=count>0; }
@@ -48,6 +64,7 @@ search.addEventListener('input', () => { toggleMenu(true); filterApps(search.val
 search.addEventListener('keydown', e => { if(e.key === 'Enter'){const first=menuApps.querySelector('button:not([hidden])');if(first)openApp(first.dataset.app);} });
 function updateClock(){ const now=new Date();document.querySelector('#date').textContent=now.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}); const time=now.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'}); document.querySelector('#widget-time').textContent=time;document.querySelector('#tray-time').textContent=time; }
 updateClock();setInterval(updateClock,1000);
+if (location.hash === '#music') openApp('music');
 function setupTerminal(){
  const form=document.querySelector('#terminal-form'),input=document.querySelector('#terminal-input'),output=document.querySelector('#terminal-output');
  form.addEventListener('submit',e=>{e.preventDefault();const raw=input.value.trim(),cmd=raw.toLowerCase();input.value='';if(!raw)return;
