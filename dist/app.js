@@ -11,7 +11,7 @@ const pages = {
   about: aboutPage,
   projects: projectsPage,
   resume: `<section class="resume-reader" aria-label="Cristy Zhang’s resume"><div class="resume-toolbar"><span class="resume-document-label">Cristy Zhang <span>· PDF</span></span><div class="resume-actions"><a href="assets/Cristy-Zhang-Resume-First-Page.pdf" target="_blank" rel="noopener noreferrer">Open PDF <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><a class="resume-download" href="assets/Cristy-Zhang-Resume-First-Page.pdf" download="Cristy-Zhang-Resume.pdf">Download <span aria-hidden="true">↓</span></a></div></div><div class="resume-page-view"><img class="resume-page-image" src="assets/resume-first-page.png" alt="First page of Cristy Zhang's resume" width="1530" height="1980"></div><p class="resume-fallback">Page 1 of 1 · <a href="assets/Cristy-Zhang-Resume-First-Page.pdf" target="_blank" rel="noopener noreferrer">Open the resume directly<span class="sr-only"> (opens in a new tab)</span></a>.</p></section>`,
-  contact: `<span class="eyebrow">LET’S SAY HELLO</span><h1>My door is always open ♡</h1><p>Have an idea, a question, or something interesting to share? This is where we can connect.</p><p class="placeholder">Contact details coming soon. Add your email, GitHub, or LinkedIn here.</p><p>Until then, thanks for stopping by. I hope you enjoyed your little visit.</p>`,
+  contact: contactPage,
   terminal: `<div class="terminal"><p>little-corner terminal [version 1.0]<br>Type “help” to see what’s here. ♡</p><div class="terminal-output" id="terminal-output" role="log" aria-live="polite"></div><form id="terminal-form"><label for="terminal-input">visitor ~ $</label><input id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command"></form></div>`
 };
 function toggleMenu(show) { menu.hidden = !show; start.setAttribute('aria-expanded', String(show)); }
@@ -32,7 +32,8 @@ function openApp(app) {
   dialog.classList.toggle('about-window', app === 'about');
   dialog.classList.toggle('projects-window', app === 'projects');
   dialog.classList.toggle('resume-window', app === 'resume');
-  document.querySelector('#window-title').textContent = app === 'about' ? 'about_me.exe' : app === 'resume' ? 'resume.pdf' : apps[app];
+  dialog.classList.toggle('contact-window', app === 'contact');
+  document.querySelector('#window-title').textContent = app === 'about' ? 'about_me.exe' : app === 'resume' ? 'resume.pdf' : app === 'contact' ? 'contact.exe' : apps[app];
   document.querySelector('#window-icon use').setAttribute('href', '#i-' + app);
   if (!preserve) content.innerHTML = pages[app];
   if (app === 'projects' && !preserve) setupProjects();
