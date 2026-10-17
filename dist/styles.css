@@ -75,9 +75,11 @@ svg {
 }
 
 .wallpaper {
+    --wallpaper-position: center center;
     position: absolute;
     inset: 0;
-    background: linear-gradient(#50476b0a, #50476b0a), url('assets/twilight-desk.png') center center/cover no-repeat;
+    background: linear-gradient(#50476b0a, #50476b0a), url('assets/twilight-desk.png') var(--wallpaper-position)/cover no-repeat;
+    background-position: var(--wallpaper-position);
     z-index: -1;
 }
 
@@ -698,7 +700,7 @@ dialog::backdrop {
     }
 
     .wallpaper {
-        background-position: 43% center;
+        --wallpaper-position: 43% center;
     }
 
     .desktop-icons {
