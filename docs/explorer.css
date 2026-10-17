@@ -220,6 +220,7 @@ dialog.explorer-window {
 }
 
 .explorer-item {
+    text-decoration: none;
     width: 100%;
     min-height: 52px;
     border: 1px solid transparent;
