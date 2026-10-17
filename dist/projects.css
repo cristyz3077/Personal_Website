@@ -39,6 +39,10 @@ dialog.projects-window { width: min(1140px, calc(100vw - 36px)); border-radius: 
 .project-status.is-complete { background: #e8ede0; border-color: #d9dfcf; color: #7d8c72; }
 .project-notes p { line-height: 1.8; }
 .project-notes strong { color: #766282; }
+.project-source-link { display: block; margin-top: 14px; padding: 11px 12px; background: #eae4ef; border: 1px solid #ddd2e7; border-radius: 12px; text-align: center; text-decoration: none; color: #8b749e; font-size: 12px; font-weight: 700; }
+.project-source-link:hover { background: #dfd3e9; color: #6c577d; }
+.project-subtitle { font-size: 12px !important; color: #a08aaf !important; line-height: 1.6; margin-top: -5px !important; }
+.portfolio-card[data-project-card="bot"] h2, .project-detail h1 { font-weight: 400; }
 @media (max-width: 1000px) {
   .projects-browser { grid-template-columns: 185px minmax(0,1fr); }
   .project-sidebar { padding: 20px 10px 0; }
