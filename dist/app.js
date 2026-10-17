@@ -10,7 +10,7 @@ const pages = {
   travel: `<div class="travel-page"><span class="eyebrow">POSTCARDS & LITTLE DETOURS</span><h1>travel with me ♡</h1><p>A little journal for city wanderings, new places, and memories along the way.</p><div class="travel-postcard"><span aria-hidden="true">✧</span><h2>The first postcard is on its way</h2><p>Photos and stories from my adventures will live here.</p><span class="postcard-stamp" aria-hidden="true">♡</span></div></div>`,
   about: aboutPage,
   projects: projectsPage,
-  resume: `<span class="eyebrow">MY JOURNEY SO FAR</span><h1>A little about my path</h1><p class="placeholder">Your resume hasn’t been added yet.</p><h2>Education</h2><p>Add your school, degree, and graduation year.</p><h2>Experience</h2><p>Share your work, internships, clubs, or personal projects.</p><h2>Skills</h2><p>Include the tools and technologies you enjoy working with.</p>`,
+  resume: `<section class="resume-reader" aria-label="Cristy Zhang’s resume"><div class="resume-toolbar"><span class="resume-document-label">Cristy Zhang <span>· PDF</span></span><div class="resume-actions"><a href="assets/Cristy-Zhang-Resume.pdf" target="_blank" rel="noopener noreferrer">Open PDF <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><a class="resume-download" href="assets/Cristy-Zhang-Resume.pdf" download="Cristy-Zhang-Resume.pdf">Download <span aria-hidden="true">↓</span></a></div></div><iframe class="resume-pdf" src="assets/Cristy-Zhang-Resume.pdf#view=FitH" title="Cristy Zhang’s resume PDF"></iframe><p class="resume-fallback">Preview not showing? <a href="assets/Cristy-Zhang-Resume.pdf" target="_blank" rel="noopener noreferrer">Open the resume directly<span class="sr-only"> (opens in a new tab)</span></a>.</p></section>`,
   contact: `<span class="eyebrow">LET’S SAY HELLO</span><h1>My door is always open ♡</h1><p>Have an idea, a question, or something interesting to share? This is where we can connect.</p><p class="placeholder">Contact details coming soon. Add your email, GitHub, or LinkedIn here.</p><p>Until then, thanks for stopping by. I hope you enjoyed your little visit.</p>`,
   terminal: `<div class="terminal"><p>little-corner terminal [version 1.0]<br>Type “help” to see what’s here. ♡</p><div class="terminal-output" id="terminal-output" role="log" aria-live="polite"></div><form id="terminal-form"><label for="terminal-input">visitor ~ $</label><input id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command"></form></div>`
 };
@@ -31,7 +31,8 @@ function openApp(app) {
   filterApps('');
   dialog.classList.toggle('about-window', app === 'about');
   dialog.classList.toggle('projects-window', app === 'projects');
-  document.querySelector('#window-title').textContent = app === 'about' ? 'about_me.exe' : apps[app];
+  dialog.classList.toggle('resume-window', app === 'resume');
+  document.querySelector('#window-title').textContent = app === 'about' ? 'about_me.exe' : app === 'resume' ? 'resume.pdf' : apps[app];
   document.querySelector('#window-icon use').setAttribute('href', '#i-' + app);
   if (!preserve) content.innerHTML = pages[app];
   if (app === 'projects' && !preserve) setupProjects();
