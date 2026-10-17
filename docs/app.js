@@ -182,25 +182,8 @@ function setupExplorer() {
       type.textContent = node.kind === 'folder' ? 'Folder' : node.href ? 'Web page' : 'App';
       row.append(icon, label, type);
       list.append(row);
-      row.addEventListener('click', event => {
-        // Touch users open with one tap; native keyboard clicks open too.
-        const touchActivation = event.pointerType === 'touch' || event.pointerType === 'pen'
-          || (!event.pointerType && window.matchMedia('(pointer: coarse)').matches);
-        if (touchActivation || event.detail === 0) {
-          activate(node, parentPath);
-          return;
-        }
-        explorerSelected = node.id;
-        list.querySelectorAll('.explorer-item').forEach(item => item.setAttribute('aria-selected', String(item === row)));
-        document.querySelector('#explorer-status').textContent = `${node.name} selected`;
-      });
-      row.addEventListener('dblclick', () => activate(node, parentPath));
-      row.addEventListener('keydown', event => {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          activate(node, parentPath);
-        }
-      });
+      // Native button clicks work with mouse, touch, Enter, and Space.
+      row.addEventListener('click', () => activate(node, parentPath));
     }
     document.querySelector('#explorer-status').textContent = query
       ? `${entries.length} ${entries.length === 1 ? 'result' : 'results'}`
@@ -246,7 +229,6 @@ function setupExplorer() {
     });
   });
   render();
-  searchInput.focus();
 }
 document.addEventListener('click', e => {
   if (!e.target.closest('.music-folder, [data-app="music"]')) toggleMusic(false);
