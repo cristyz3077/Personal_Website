@@ -1,2 +1,842 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Nunito:wght@400;500;600;700;800&display=swap');
-:root{--ink:#48465d;--cream:#f8f3e9;--lavender:#d8cce9;--line:#8c819c;--bar:58px;font-family:Nunito,'Segoe UI',sans-serif;color:var(--ink);font-synthesis:none}*{box-sizing:border-box}body{margin:0;overflow:hidden;background:#bdb2cf}button,input,a{-webkit-tap-highlight-color:transparent}button,input{font:inherit}button{color:inherit;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #776692;outline-offset:4px}button{touch-action:manipulation}svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.svg-library{position:absolute;width:0;height:0;overflow:hidden}.desktop{height:calc(100svh - var(--bar));position:relative;isolation:isolate}.wallpaper{position:absolute;inset:0;background:linear-gradient(#50476b0a,#50476b0a),url('assets/twilight-desk.png') center center/cover no-repeat;z-index:-1}.desktop-icons{position:absolute;top:30px;left:24px;display:flex;flex-direction:column;gap:16px}.desktop-icon{border:1px solid transparent;border-radius:10px;background:transparent;width:88px;display:flex;align-items:center;flex-direction:column;gap:4px;padding:6px 3px}.desktop-icon:hover,.desktop-icon:focus-visible{background:#f5edff40;border-color:#f5edff8c}.desktop-icon svg{width:54px;height:54px;filter:drop-shadow(1px 3px 1px #4c405633);stroke:#72687f;stroke-width:1.8}.desktop-icon span{background:#faf4e5e8;border-radius:4px;padding:0 5px;box-shadow:0 1px 2px #59495836;font-size:13px;font-weight:800;line-height:1.35}.welcome{position:absolute;left:23%;top:21%;text-align:center;pointer-events:none;transform:rotate(-2deg)}.welcome p{font-family:Gaegu,'Comic Sans MS',cursive;font-size:clamp(25px,2.7vw,45px);line-height:1.5;letter-spacing:1px;color:#fff2db;margin:0;text-shadow:0 2px 8px #76608770}.tiny-star{display:block;font-size:51px;color:#ffe4aa;margin:10px 0 0 70%;text-shadow:0 0 10px #fff2be66}.clock-widget{position:absolute;right:28px;top:24px;background:#fcf6eceb;box-shadow:0 4px 18px #5b4a651b;border:1px solid #b7a6b4;border-radius:19px;min-width:150px;padding:10px 23px;text-align:center;backdrop-filter:blur(12px)}.clock-widget span{display:block;font-size:13px;font-weight:700;letter-spacing:.4px}.clock-widget time{display:block;font-size:24px;font-weight:800;letter-spacing:1px}.sticky-note{position:absolute;right:6%;top:23%;width:clamp(185px,18vw,280px);background:#f2e3c7;border:1px solid #bca98d;box-shadow:2px 7px 17px #51453c33;padding:30px 20px 15px;transform:rotate(-6deg);font:clamp(19px,1.65vw,27px)/1.3 Gaegu,'Comic Sans MS',cursive;transition:transform .2s}.sticky-note:hover{transform:rotate(-3deg) translateY(-3px)}.pin{position:absolute;width:12px;height:30px;top:-16px;left:30%;border:2px solid #9e849b;border-radius:6px;background:#bda5b8;box-shadow:2px 2px 2px #554b5922}.cat-doodle{display:block;text-align:right;font-size:21px;margin-top:15px}.desktop-hint{position:absolute;bottom:16px;left:145px;font:20px Gaegu,cursive;color:#fff4e1;text-shadow:0 2px 5px #554559;letter-spacing:.5px}.desktop-hint span{margin-left:6px}.taskbar{height:var(--bar);display:flex;align-items:center;gap:14px;padding:8px 18px;border-top:1px solid #fff5ed;background:#eee9e3ed;box-shadow:0 -2px 12px #594f7129;position:relative;z-index:5}.start-button{border:1.5px solid #8e81a7;background:#f9f5ed;box-shadow:inset 0 0 0 2px #fff,0 2px 3px #55466420;display:flex;align-items:center;gap:8px;border-radius:24px;padding:5px 15px;font-weight:800;font-size:16px;letter-spacing:.5px}.start-button svg{width:21px;height:21px}.start-button:hover,.start-button[aria-expanded=true]{background:#e5daf0}.search{border:1.5px solid #c1b9c7;background:#f8f5f04d;display:flex;align-items:center;gap:8px;border-radius:22px;padding:4px 12px;width:min(28vw,350px)}.search svg{width:17px;height:17px;flex:none}.search input{border:0;outline:none;background:transparent;min-width:0;width:100%;font-size:13px;color:var(--ink)}.search input::placeholder{color:#9290a2}.system-tray{display:flex;align-items:center;gap:17px;margin-left:auto;font-size:14px;font-weight:800;white-space:nowrap}.system-tray svg{width:22px;height:22px}.system-tray button{border:0;background:none;font-size:24px;position:relative;padding:0 3px;line-height:1.1}.sound-off{font-size:15px;position:absolute;right:-6px;bottom:0}.battery{width:23px;height:13px;border:1.6px solid var(--ink);border-radius:3px;position:relative;padding:2px}.battery:after{content:'';position:absolute;right:-4px;top:3px;width:2px;height:4px;background:var(--ink)}.battery i{display:block;background:var(--ink);width:100%;height:100%;border-radius:1px}.start-menu{position:absolute;bottom:70px;left:18px;z-index:8;background:#fbf6f0f5;backdrop-filter:blur(22px);border:1.5px solid var(--line);box-shadow:0 10px 40px #493c6640;border-radius:16px;width:340px;padding:23px}.menu-eyebrow{font-size:9px;letter-spacing:2px;font-weight:800;color:#95859f;margin:0 0 7px}.start-menu h2{font-family:Gaegu,cursive;font-size:29px;margin:0 0 16px}.menu-item{width:100%;background:none;border:0;border-radius:8px;display:flex;align-items:center;gap:14px;text-align:left;padding:7px 9px;font-weight:700}.menu-item:hover{background:#eae0f2}.menu-item svg{width:34px;height:34px;stroke:#72687f}.start-menu footer{border-top:1px solid #ded5df;margin-top:14px;padding-top:15px;font-size:10px;display:flex;align-items:center;gap:7px}.status-dot{width:7px;height:7px;border-radius:50%;background:#96a783}.active-app{border:1px solid #b2a3c5;border-bottom:3px solid #9180a7;border-radius:7px;background:#e0d7e9;padding:6px 12px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}dialog{padding:0;border:1.5px solid var(--line);border-radius:13px;width:min(590px,calc(100vw - 32px));max-height:calc(100svh - 100px);background:#fcf8ef;color:var(--ink);box-shadow:5px 12px 55px #43345255;overflow:hidden}dialog::backdrop{background:#39324e16;backdrop-filter:blur(2px)}.window-bar{height:45px;background:#dfd5e9;border-bottom:1px solid #b8a9c8;display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 15px}.window-bar>div{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800}.window-bar svg{width:26px;height:26px;stroke:#72687f}.window-controls{gap:6px!important}.window-controls button{border:1px solid #ac9cb9;width:26px;height:25px;border-radius:6px;background:#f7f0f5;font-size:21px;line-height:18px}.window-controls button:hover{background:#e7c7d1}.window-content{padding:30px;max-height:calc(100svh - 160px);overflow:auto;line-height:1.7;font-size:14px}.window-content h1{font:38px/1.2 Gaegu,cursive;margin:0 0 16px}.window-content h2{font-size:16px;margin:23px 0 7px}.window-content p{margin:10px 0 16px}.eyebrow{color:#97849e;font-size:10px;font-weight:800;letter-spacing:2px}.pill{display:inline-block;background:#eae1ef;padding:4px 11px;border-radius:20px;font-size:11px;margin:4px 4px 4px 0}.placeholder{padding:13px 16px;border:1px dashed #c9b8cd;background:#f4edf3;border-radius:9px;font-size:12px;color:#86758e}.project-card{border:1px solid #d3c6d6;border-radius:10px;padding:15px 18px;background:#f5eff7;margin:12px 0}.project-card h2{margin:0 0 5px}.project-card p{margin:0;font-size:12px}.action-button{display:inline-block;border:1px solid #aa98b9;border-radius:8px;background:#e5d9ed;padding:8px 16px;color:var(--ink);text-decoration:none;font-weight:700}.terminal{background:#34313f;color:#e8ddef;font:13px/1.8 Consolas,monospace;margin:-30px;padding:25px;min-height:300px}.terminal p{margin:0 0 14px}.terminal-output{white-space:pre-wrap;overflow-wrap:anywhere}.terminal form{display:flex;gap:10px;align-items:center}.terminal label{color:#c4cca2;white-space:nowrap}.terminal input{background:none;border:0;outline:none;color:#fff4dd;width:100%;min-width:0;font:inherit}.terminal input:focus-visible{outline:1px solid #a89ab8;outline-offset:3px}.terminal a{color:#e5c2ee}[hidden]{display:none!important}@media(min-width:1700px){.desktop-icons{top:45px;left:35px;gap:24px}.desktop-icon svg{width:64px;height:64px}}@media(max-height:650px) and (min-width:701px){.desktop-icons{top:14px;gap:3px}.desktop-icon svg{width:43px;height:43px}.desktop-icon span{font-size:12px}.sticky-note{top:25%;font-size:21px;padding-top:22px}.welcome{top:23%}}@media(max-width:700px){:root{--bar:60px}.wallpaper{background-position:43% center}.desktop-icons{left:10px;top:17px;gap:14px}.desktop-icon{width:72px}.desktop-icon svg{width:44px;height:44px}.desktop-icon span{font-size:11px}.clock-widget{right:13px;top:17px;min-width:119px;padding:8px 12px;border-radius:14px}.clock-widget span{font-size:11px}.clock-widget time{font-size:20px}.welcome{left:24%;right:4%;top:23%;transform:rotate(-3deg)}.welcome p{font-size:27px;text-shadow:0 2px 6px #544463}.tiny-star{font-size:38px;margin-top:0}.sticky-note{right:7%;top:auto;bottom:11%;width:175px;font-size:20px;padding:20px 15px 10px}.cat-doodle{margin-top:7px;font-size:17px}.desktop-hint{display:none}.taskbar{padding:8px 12px;gap:10px}.start-button{padding:6px 11px;font-size:14px}.search{width:auto;flex:1;padding:5px 8px}.search input{font-size:11px}.system-tray{gap:10px}.wifi,.battery{display:none}.system-tray time{font-size:12px}.system-tray button{font-size:21px}.active-app{display:none}.start-menu{left:12px;bottom:72px;width:min(340px,calc(100vw - 24px))}.window-content{padding:23px}.terminal{margin:-23px;padding:20px}.window-content h1{font-size:33px}}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+:root {
+    --ink: #48465d;
+    --cream: #f8f3e9;
+    --lavender: #d8cce9;
+    --line: #8c819c;
+    --bar: 58px;
+    font-family: Nunito, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    font-synthesis: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #bdb2cf;
+}
+
+button,
+input,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid #776692;
+    outline-offset: 4px;
+}
+
+button {
+    touch-action: manipulation;
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.svg-library {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Desktop */
+
+.desktop {
+    height: calc(100svh - var(--bar));
+    position: relative;
+    isolation: isolate;
+}
+
+.wallpaper {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#50476b0a, #50476b0a), url('assets/twilight-desk.png') center center/cover no-repeat;
+    z-index: -1;
+}
+
+.desktop-icons {
+    position: absolute;
+    top: 30px;
+    left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.desktop-icon {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: transparent;
+    width: 88px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    padding: 6px 3px;
+}
+
+.desktop-icon:hover,
+.desktop-icon:focus-visible {
+    background: #f5edff40;
+    border-color: #f5edff8c;
+}
+
+.desktop-icon svg {
+    width: 54px;
+    height: 54px;
+    filter: drop-shadow(1px 3px 1px #4c405633);
+    stroke: #72687f;
+    stroke-width: 1.8;
+}
+
+.desktop-icon span {
+    background: #faf4e5e8;
+    border-radius: 4px;
+    padding: 0 5px;
+    box-shadow: 0 1px 2px #59495836;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+/* Welcome Message */
+
+.welcome {
+    position: absolute;
+    left: 23%;
+    top: 21%;
+    text-align: center;
+    pointer-events: none;
+    transform: rotate(-2deg);
+}
+
+.welcome p {
+    font-family: Gaegu, 'Comic Sans MS', cursive;
+    font-size: clamp(25px, 2.7vw, 45px);
+    line-height: 1.5;
+    letter-spacing: 1px;
+    color: #fff2db;
+    margin: 0;
+    text-shadow: 0 2px 8px #76608770;
+}
+
+.tiny-star {
+    display: block;
+    font-size: 51px;
+    color: #ffe4aa;
+    margin: 10px 0 0 70%;
+    text-shadow: 0 0 10px #fff2be66;
+}
+
+/* Clock */
+
+.clock-widget {
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    background: #fcf6eceb;
+    box-shadow: 0 4px 18px #5b4a651b;
+    border: 1px solid #b7a6b4;
+    border-radius: 19px;
+    min-width: 150px;
+    padding: 10px 23px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+}
+
+.clock-widget span {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .4px;
+}
+
+.clock-widget time {
+    display: block;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* Sticky Note */
+
+.sticky-note {
+    position: absolute;
+    right: 6%;
+    top: 23%;
+    width: clamp(185px, 18vw, 280px);
+    background: #f2e3c7;
+    border: 1px solid #bca98d;
+    box-shadow: 2px 7px 17px #51453c33;
+    padding: 30px 20px 15px;
+    transform: rotate(-6deg);
+    font: clamp(19px, 1.65vw, 27px)/1.3 Gaegu, 'Comic Sans MS', cursive;
+    transition: transform .2s;
+}
+
+.sticky-note:hover {
+    transform: rotate(-3deg) translateY(-3px);
+}
+
+.pin {
+    position: absolute;
+    width: 12px;
+    height: 30px;
+    top: -16px;
+    left: 30%;
+    border: 2px solid #9e849b;
+    border-radius: 6px;
+    background: #bda5b8;
+    box-shadow: 2px 2px 2px #554b5922;
+}
+
+.cat-doodle {
+    display: block;
+    text-align: right;
+    font-size: 21px;
+    margin-top: 15px;
+}
+
+.desktop-hint {
+    position: absolute;
+    bottom: 16px;
+    left: 145px;
+    font: 20px Gaegu, cursive;
+    color: #fff4e1;
+    text-shadow: 0 2px 5px #554559;
+    letter-spacing: .5px;
+}
+
+.desktop-hint span {
+    margin-left: 6px;
+}
+
+/* Taskbar */
+
+.taskbar {
+    height: var(--bar);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 18px;
+    border-top: 1px solid #fff5ed;
+    background: #eee9e3ed;
+    box-shadow: 0 -2px 12px #594f7129;
+    position: relative;
+    z-index: 5;
+}
+
+.start-button {
+    border: 1.5px solid #8e81a7;
+    background: #f9f5ed;
+    box-shadow: inset 0 0 0 2px #fff, 0 2px 3px #55466420;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 24px;
+    padding: 5px 15px;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: .5px;
+}
+
+.start-button svg {
+    width: 21px;
+    height: 21px;
+}
+
+.start-button:hover,
+.start-button[aria-expanded=true] {
+    background: #e5daf0;
+}
+
+/* Search Bar */
+
+.search {
+    border: 1.5px solid #c1b9c7;
+    background: #f8f5f04d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 22px;
+    padding: 4px 12px;
+    width: min(28vw, 350px);
+}
+
+.search svg {
+    width: 17px;
+    height: 17px;
+    flex: none;
+}
+
+.search input {
+    border: 0;
+    outline: none;
+    background: transparent;
+    min-width: 0;
+    width: 100%;
+    font-size: 13px;
+    color: var(--ink);
+}
+
+.search input::placeholder {
+    color: #9290a2;
+}
+
+/* System Tray */
+
+.system-tray {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-left: auto;
+    font-size: 14px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.system-tray svg {
+    width: 22px;
+    height: 22px;
+}
+
+.system-tray button {
+    border: 0;
+    background: none;
+    font-size: 24px;
+    position: relative;
+    padding: 0 3px;
+    line-height: 1.1;
+}
+
+.sound-off {
+    font-size: 15px;
+    position: absolute;
+    right: -6px;
+    bottom: 0;
+}
+
+.battery {
+    width: 23px;
+    height: 13px;
+    border: 1.6px solid var(--ink);
+    border-radius: 3px;
+    position: relative;
+    padding: 2px;
+}
+
+.battery:after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 3px;
+    width: 2px;
+    height: 4px;
+    background: var(--ink);
+}
+
+.battery i {
+    display: block;
+    background: var(--ink);
+    width: 100%;
+    height: 100%;
+    border-radius: 1px;
+}
+
+/* Start Menu */
+
+.start-menu {
+    position: absolute;
+    bottom: 70px;
+    left: 18px;
+    z-index: 8;
+    background: #fbf6f0f5;
+    backdrop-filter: blur(22px);
+    border: 1.5px solid var(--line);
+    box-shadow: 0 10px 40px #493c6640;
+    border-radius: 16px;
+    width: 340px;
+    padding: 23px;
+}
+
+.menu-eyebrow {
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: #95859f;
+    margin: 0 0 7px;
+}
+
+.start-menu h2 {
+    font-family: Gaegu, cursive;
+    font-size: 29px;
+    margin: 0 0 16px;
+}
+
+.menu-item {
+    width: 100%;
+    background: none;
+    border: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    padding: 7px 9px;
+    font-weight: 700;
+}
+
+.menu-item:hover {
+    background: #eae0f2;
+}
+
+.menu-item svg {
+    width: 34px;
+    height: 34px;
+    stroke: #72687f;
+}
+
+.start-menu footer {
+    border-top: 1px solid #ded5df;
+    margin-top: 14px;
+    padding-top: 15px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #96a783;
+}
+
+.active-app {
+    border: 1px solid #b2a3c5;
+    border-bottom: 3px solid #9180a7;
+    border-radius: 7px;
+    background: #e0d7e9;
+    padding: 6px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+
+/* Application Windows */
+
+dialog {
+    padding: 0;
+    border: 1.5px solid var(--line);
+    border-radius: 13px;
+    width: min(590px, calc(100vw - 32px));
+    max-height: calc(100svh - 100px);
+    background: #fcf8ef;
+    color: var(--ink);
+    box-shadow: 5px 12px 55px #43345255;
+    overflow: hidden;
+}
+
+dialog::backdrop {
+    background: #39324e16;
+    backdrop-filter: blur(2px);
+}
+
+.window-bar {
+    height: 45px;
+    background: #dfd5e9;
+    border-bottom: 1px solid #b8a9c8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 0 15px;
+}
+
+.window-bar > div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.window-bar svg {
+    width: 26px;
+    height: 26px;
+    stroke: #72687f;
+}
+
+.window-controls {
+    gap: 6px !important;
+}
+
+.window-controls button {
+    border: 1px solid #ac9cb9;
+    width: 26px;
+    height: 25px;
+    border-radius: 6px;
+    background: #f7f0f5;
+    font-size: 21px;
+    line-height: 18px;
+}
+
+.window-controls button:hover {
+    background: #e7c7d1;
+}
+
+.window-content {
+    padding: 30px;
+    max-height: calc(100svh - 160px);
+    overflow: auto;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.window-content h1 {
+    font: 38px/1.2 Gaegu, cursive;
+    margin: 0 0 16px;
+}
+
+.window-content h2 {
+    font-size: 16px;
+    margin: 23px 0 7px;
+}
+
+.window-content p {
+    margin: 10px 0 16px;
+}
+
+/* Window Content */
+
+.eyebrow {
+    color: #97849e;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.pill {
+    display: inline-block;
+    background: #eae1ef;
+    padding: 4px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin: 4px 4px 4px 0;
+}
+
+.placeholder {
+    padding: 13px 16px;
+    border: 1px dashed #c9b8cd;
+    background: #f4edf3;
+    border-radius: 9px;
+    font-size: 12px;
+    color: #86758e;
+}
+
+/* Project Cards */
+
+.project-card {
+    border: 1px solid #d3c6d6;
+    border-radius: 10px;
+    padding: 15px 18px;
+    background: #f5eff7;
+    margin: 12px 0;
+}
+
+.project-card h2 {
+    margin: 0 0 5px;
+}
+
+.project-card p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.action-button {
+    display: inline-block;
+    border: 1px solid #aa98b9;
+    border-radius: 8px;
+    background: #e5d9ed;
+    padding: 8px 16px;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Terminal */
+
+.terminal {
+    background: #34313f;
+    color: #e8ddef;
+    font: 13px/1.8 Consolas, monospace;
+    margin: -30px;
+    padding: 25px;
+    min-height: 300px;
+}
+
+.terminal p {
+    margin: 0 0 14px;
+}
+
+.terminal-output {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.terminal form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.terminal label {
+    color: #c4cca2;
+    white-space: nowrap;
+}
+
+.terminal input {
+    background: none;
+    border: 0;
+    outline: none;
+    color: #fff4dd;
+    width: 100%;
+    min-width: 0;
+    font: inherit;
+}
+
+.terminal input:focus-visible {
+    outline: 1px solid #a89ab8;
+    outline-offset: 3px;
+}
+
+.terminal a {
+    color: #e5c2ee;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* Large Screens */
+
+@media (min-width: 1700px) {
+    .desktop-icons {
+        top: 45px;
+        left: 35px;
+        gap: 24px;
+    }
+
+    .desktop-icon svg {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+/* Short Screens */
+
+@media (max-height: 650px) and (min-width: 701px) {
+    .desktop-icons {
+        top: 14px;
+        gap: 3px;
+    }
+
+    .desktop-icon svg {
+        width: 43px;
+        height: 43px;
+    }
+
+    .desktop-icon span {
+        font-size: 12px;
+    }
+
+    .sticky-note {
+        top: 25%;
+        font-size: 21px;
+        padding-top: 22px;
+    }
+
+    .welcome {
+        top: 23%;
+    }
+}
+
+/* Mobile Screens */
+
+@media (max-width: 700px) {
+    :root {
+        --bar: 60px;
+    }
+
+    .wallpaper {
+        background-position: 43% center;
+    }
+
+    .desktop-icons {
+        left: 10px;
+        top: 17px;
+        gap: 14px;
+    }
+
+    .desktop-icon {
+        width: 72px;
+    }
+
+    .desktop-icon svg {
+        width: 44px;
+        height: 44px;
+    }
+
+    .desktop-icon span {
+        font-size: 11px;
+    }
+
+    .clock-widget {
+        right: 13px;
+        top: 17px;
+        min-width: 119px;
+        padding: 8px 12px;
+        border-radius: 14px;
+    }
+
+    .clock-widget span {
+        font-size: 11px;
+    }
+
+    .clock-widget time {
+        font-size: 20px;
+    }
+
+    .welcome {
+        left: 24%;
+        right: 4%;
+        top: 23%;
+        transform: rotate(-3deg);
+    }
+
+    .welcome p {
+        font-size: 27px;
+        text-shadow: 0 2px 6px #544463;
+    }
+
+    .tiny-star {
+        font-size: 38px;
+        margin-top: 0;
+    }
+
+    .sticky-note {
+        right: 7%;
+        top: auto;
+        bottom: 11%;
+        width: 175px;
+        font-size: 20px;
+        padding: 20px 15px 10px;
+    }
+
+    .cat-doodle {
+        margin-top: 7px;
+        font-size: 17px;
+    }
+
+    .desktop-hint {
+        display: none;
+    }
+
+    .taskbar {
+        padding: 8px 12px;
+        gap: 10px;
+    }
+
+    .start-button {
+        padding: 6px 11px;
+        font-size: 14px;
+    }
+
+    .search {
+        width: auto;
+        flex: 1;
+        padding: 5px 8px;
+    }
+
+    .search input {
+        font-size: 11px;
+    }
+
+    .system-tray {
+        gap: 10px;
+    }
+
+    .wifi,
+    .battery {
+        display: none;
+    }
+
+    .system-tray time {
+        font-size: 12px;
+    }
+
+    .system-tray button {
+        font-size: 21px;
+    }
+
+    .active-app {
+        display: none;
+    }
+
+    .start-menu {
+        left: 12px;
+        bottom: 72px;
+        width: min(340px, calc(100vw - 24px));
+    }
+
+    .window-content {
+        padding: 23px;
+    }
+
+    .terminal {
+        margin: -23px;
+        padding: 20px;
+    }
+
+    .window-content h1 {
+        font-size: 33px;
+    }
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

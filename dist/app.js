@@ -7,7 +7,7 @@ const search = document.querySelector('#search');
 const active = document.querySelector('#active-app');
 let currentApp = null;
 const pages = {
-  about: `<span class="eyebrow">A SMALL INTRODUCTION</span><h1>Hi, nice to meet you ♡</h1><p>Welcome to my little corner of the internet—a home for things I make, things I learn, and ideas I’m still figuring out.</p><p>Feel free to open a folder, poke around the terminal, or just enjoy the view.</p><div><span class="pill">making things</span><span class="pill">staying curious</span><span class="pill">one idea at a time</span></div><p class="placeholder">Your introduction goes here. Add your name, what you’re studying or working on, and a few things you love.</p>`,
+  about: aboutPage,
   projects: `<span class="eyebrow">THE THINGS I MAKE</span><h1>A few little projects</h1><article class="project-card"><span class="eyebrow">01 / THIS WEBSITE</span><h2>A desktop with a view</h2><p>A personal corner built with HTML, CSS, and JavaScript. Open a window, try the terminal, and make yourself at home.</p></article><article class="project-card"><span class="eyebrow">02 / YOUR NEXT PROJECT</span><h2>Something worth sharing</h2><p>Add a project title, what you built, what you learned, and a link to explore it.</p></article><p class="placeholder">This is your project shelf. Replace the example above with your own work when you’re ready.</p>`,
   resume: `<span class="eyebrow">MY JOURNEY SO FAR</span><h1>A little about my path</h1><p class="placeholder">Your resume hasn’t been added yet.</p><h2>Education</h2><p>Add your school, degree, and graduation year.</p><h2>Experience</h2><p>Share your work, internships, clubs, or personal projects.</p><h2>Skills</h2><p>Include the tools and technologies you enjoy working with.</p>`,
   contact: `<span class="eyebrow">LET’S SAY HELLO</span><h1>My door is always open ♡</h1><p>Have an idea, a question, or something interesting to share? This is where we can connect.</p><p class="placeholder">Contact details coming soon. Add your email, GitHub, or LinkedIn here.</p><p>Until then, thanks for stopping by. I hope you enjoyed your little visit.</p>`,
@@ -21,9 +21,11 @@ function openApp(app) {
   toggleMenu(false);
   search.value = '';
   filterApps('');
-  document.querySelector('#window-title').textContent = apps[app];
+  dialog.classList.toggle('about-window', app === 'about');
+  document.querySelector('#window-title').textContent = app === 'about' ? 'about_me.exe' : apps[app];
   document.querySelector('#window-icon use').setAttribute('href', '#i-' + app);
   if (!preserve) content.innerHTML = pages[app];
+  if (app === 'about' && !preserve) setupAboutTabs();
   active.textContent = apps[app]; active.hidden = false;
   if (!dialog.open) dialog.showModal();
   if(app === 'terminal') {
