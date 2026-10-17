@@ -1,0 +1,21 @@
+dialog.resume-window { width: min(1040px, calc(100vw - 36px)); border-radius: 14px; border-color: #aaa1b4; background: #f7f2e9; }
+.resume-window .window-bar { height: 49px; padding-left: 21px; background: linear-gradient(110deg,#e6e2ec,#eee7e7); border-bottom-color: #d8d0dc; }
+.resume-window .window-bar > div:first-child { font-size: 19px; letter-spacing: .5px; }
+.resume-window .window-controls button { border: 0; background: transparent; font-size: 26px; }
+.resume-window .window-controls button:hover { background: #dfd2e4; }
+.resume-window .window-content { padding: 0; max-height: none; overflow: hidden; }
+.resume-reader { display: flex; flex-direction: column; height: min(760px, calc(100svh - 160px)); min-height: 0; overflow: hidden; }
+.resume-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 12px 20px; border-bottom: 1px solid #ded6dd; background: #faf6ee; }
+.resume-document-label { font-size: 13px; font-weight: 800; color: #85788e; }
+.resume-document-label > span { font-size: 11px; font-weight: 600; color: #aa9db1; }
+.resume-actions { display: flex; gap: 10px; }
+.resume-actions a { display: inline-block; text-decoration: none; padding: 6px 12px; border: 1px solid #dbd0e3; border-radius: 9px; color: #8b769d; font-size: 12px; font-weight: 800; }
+.resume-actions a:hover { background: #e9dfef; }
+.resume-actions .resume-download { background: #eae2ef; }
+.resume-pdf { display: block; width: 100%; flex: 1; min-height: 0; border: 0; background: #e7e0db; }
+.resume-page-view { display: flex; flex: 1; min-height: 0; align-items: center; justify-content: center; padding: 12px; overflow: hidden; background: #e7e0db; }
+.resume-page-image { display: block; width: 100%; height: 100%; object-fit: contain; min-height: 0; filter: drop-shadow(0 2px 4px #5f526d25); }
+.resume-toolbar, .resume-fallback { flex-shrink: 0; }
+.resume-fallback { margin: 0 !important; padding: 7px 16px; text-align: center; font-size: 10px; color: #a090aa; border-top: 1px solid #ded6dd; }
+.resume-fallback a { color: #8b769d; text-underline-offset: 3px; }
+@media (max-width: 600px) { dialog.resume-window { width: calc(100vw - 20px); }.resume-reader { height: calc(100svh - 145px); }.resume-toolbar { padding: 10px 12px; gap: 7px; }.resume-actions { gap: 6px; }.resume-actions a { padding: 5px 8px; font-size: 10px; }.resume-document-label { font-size: 11px; }.resume-document-label > span { display: none; } }

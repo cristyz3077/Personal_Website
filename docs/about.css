@@ -1,0 +1,147 @@
+/* The About Me app: a cream notebook inside a lavender desktop window. */
+dialog.about-window {
+  width: min(1120px, calc(100vw - 44px));
+  background: #faf5ec;
+  border-color: #a8a0b3;
+  border-radius: 14px;
+}
+.about-window .window-bar {
+  height: 51px;
+  background: linear-gradient(110deg, #e8e5ed, #ece5e7);
+  border-bottom: 1px solid #d9d2dd;
+  padding-left: 21px;
+}
+.about-window .window-bar > div:first-child {
+  font: 700 20px/1.2 'Gaegu', 'Comic Sans MS', cursive;
+  letter-spacing: 1px;
+}
+.about-window .window-controls { gap: 9px !important; }
+.about-window .window-controls button {
+  border: 0;
+  background: transparent;
+  width: 29px;
+  font-size: 26px;
+}
+.about-window .window-controls button:hover { background: #dfd1e1; }
+.about-window .window-content {
+  padding: 23px 30px 28px;
+  background: radial-gradient(ellipse at 15% 5%, #fffaf3 0%, transparent 65%), #f7f1e9;
+  max-height: calc(100svh - 170px);
+}
+.about-tabs {
+  display: flex;
+  gap: 10px;
+  width: calc(100% - 290px);
+  margin-bottom: 28px;
+}
+.about-tabs button {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  padding: 9px 10px;
+  border: 1.5px solid #ded5e0;
+  border-radius: 30px;
+  background: #e8e0e9;
+  box-shadow: inset 0 1px 2px #fff8;
+  color: #79718e;
+  font-size: 17px;
+  font-weight: 800;
+}
+.about-tabs button:hover { background: #dfd6e8; }
+.about-tabs button[aria-selected="true"] {
+  background: #dfdfe9;
+  border-color: #c6c4d7;
+  color: #5d587d;
+}
+.about-tabs button[aria-selected="true"]::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  width: 24px;
+  height: 3px;
+  left: calc(50% - 12px);
+  background: #a29ab8;
+  border-radius: 5px;
+}
+.about-layout { display: grid; grid-template-columns: minmax(0, 1fr) 265px; gap: 26px; }
+.about-main { min-width: 0; }
+.profile-intro { display: grid; grid-template-columns: minmax(180px, 40%) minmax(0, 1fr); gap: 28px; align-items: center; }
+.profile-frame {
+  position: relative;
+  margin: 0;
+  padding: 9px;
+  border: 2px solid #e0d8d2;
+  border-radius: 20px;
+  background: #fffbf3;
+  transform: rotate(-1deg);
+  box-shadow: 0 3px 9px #8a7c8e0b;
+}
+.profile-frame img { display: block; width: 100%; height: auto; aspect-ratio: 0.86; object-fit: cover; object-position: center 40%; border: 1px solid #d3c7bd; border-radius: 12px; }
+.photo-star { position: absolute; color: #9185b1; text-shadow: 1px 1px #fff; font: 48px/1 Gaegu, cursive; }
+.star-one { top: -18px; right: -16px; transform: rotate(15deg); }
+.star-two { left: 5px; bottom: -14px; font-size: 35px; color: #b5a17f; }
+.photo-heart { position: absolute; top: 21px; left: 17px; font: 32px Gaegu, cursive; color: #fff0d8; transform: rotate(-18deg); text-shadow: 1px 1px #867c99; }
+.about-window .profile-copy h1 { font: 41px/1.15 Gaegu, 'Comic Sans MS', cursive; color: #8c81b0; margin: 0 0 23px; letter-spacing: 1px; }
+.profile-copy p { font-size: 16px; font-weight: 600; line-height: 1.65; color: #716b7c; }
+.profile-copy p:last-child { margin-bottom: 0; }
+.profile-tags { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 15px 12px; }
+.profile-tags li { padding: 9px 18px; border: 1px solid #e1dbe2; border-radius: 25px; background: #e9e3e9; color: #79718e; font-size: 14px; font-weight: 800; text-align: center; flex: 1 0 auto; }
+.currently-panel { border: 2px solid #e2dad7; border-radius: 20px; background: #eee7e15e; padding: 20px 22px 12px; display: flex; flex-direction: column; margin-top: -13px; }
+.about-window .currently-panel h2 { font: 32px/1.2 Gaegu, cursive; margin: 0 0 21px; color: #777183; }
+.currently-panel ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 19px; }
+.currently-panel li { position: relative; padding-left: 30px; font-size: 15px; font-weight: 700; line-height: 1.6; color: #787080; }
+.currently-panel li::before { content: '✓'; position: absolute; left: 0; top: 1px; width: 18px; height: 18px; border: 1.5px solid #b7a8bf; border-radius: 3px; font-size: 22px; line-height: 12px; color: #998aab; }
+.currently-panel li:nth-child(2n)::before { color: #7d8096; border-color: #a9a3b4; }
+.currently-bottom { display: flex; align-items: end; margin-top: auto; padding-top: 27px; gap: 0; }
+.cozy-cats { width: 135px; height: auto; flex: 0 1 135px; margin-left: -10px; }
+.currently-bottom p { font: 25px/1.15 Gaegu, cursive; color: #9689b4; text-align: center; transform: rotate(-10deg); margin: 0 -8px 15px -7px; }
+.currently-bottom p span { display: block; margin-top: 6px; letter-spacing: 4px; }
+.about-eyebrow { display: block; margin: 10px 0; color: #a093ae; font-size: 10px; letter-spacing: 2px; font-weight: 800; }
+.about-main [role="tabpanel"] > h1 { font: 40px/1.2 Gaegu, cursive; color: #8c81b0; }
+.about-main [role="tabpanel"] > p { color: #787080; }
+.about-detail-card { display: flex; gap: 18px; padding: 22px; margin-top: 18px; border: 1px solid #e1d8e0; border-radius: 16px; background: #f0e9ee77; }
+.about-detail-card h2 { color: #7c708e; margin: 0 0 7px; }
+.about-detail-card p { color: #817987; margin: 0; }
+.detail-mark { font: 32px/1 Gaegu, cursive; color: #ab9ab9; }
+.about-link { border: 0; border-bottom: 1px solid #bba9c8; background: transparent; padding: 2px 0; color: #8b749d; margin-top: 12px; font-weight: 800; }
+.handwritten-note { font: 28px Gaegu, cursive; transform: rotate(-2deg); padding: 18px 0; }
+@media (max-width: 960px) {
+  .about-window .window-content { padding: 20px; }
+  .about-layout { grid-template-columns: minmax(0, 1fr) 225px; gap: 20px; }
+  .about-tabs { width: calc(100% - 245px); gap: 7px; }
+  .about-tabs button { font-size: 14px; padding: 9px 6px; }
+  .profile-intro { gap: 20px; grid-template-columns: minmax(135px, 38%) minmax(0, 1fr); }
+  .about-window .profile-copy h1 { font-size: 35px; margin-bottom: 15px; }
+  .profile-copy p { font-size: 14px; }
+  .currently-panel { padding: 18px 16px 12px; }
+  .currently-panel li { font-size: 13px; }
+  .profile-tags { gap: 10px; margin-top: 22px; }
+  .profile-tags li { padding: 7px 12px; font-size: 12px; }
+}
+@media (max-width: 720px) {
+  dialog.about-window { width: calc(100vw - 24px); }
+  .about-window .window-content { padding: 20px 18px; }
+  .about-tabs { width: 100%; margin-bottom: 25px; }
+  .about-layout { grid-template-columns: 1fr; gap: 25px; }
+  .profile-intro { grid-template-columns: minmax(115px, 35%) minmax(0, 1fr); gap: 20px; }
+  .about-window .profile-copy h1 { font-size: 33px; }
+  .profile-copy p { font-size: 13px; line-height: 1.6; }
+  .currently-panel { margin-top: 0; padding: 20px; display: grid; grid-template-columns: 1fr 135px; gap: 0 15px; }
+  .about-window .currently-panel h2 { grid-column: 1 / -1; margin-bottom: 16px; }
+  .currently-panel ul { gap: 13px; }
+  .currently-bottom { display: block; padding-top: 0; position: relative; }
+  .cozy-cats { width: 120px; margin: 0; }
+  .currently-bottom p { font-size: 22px; margin: -8px 0 0; }
+}
+@media (max-width: 430px) {
+  .profile-intro { grid-template-columns: 1fr; }
+  .profile-frame { width: 68%; max-width: 230px; margin: 2px auto 4px; }
+  .profile-copy { text-align: center; }
+  .about-window .profile-copy h1 { margin-bottom: 14px; }
+  .profile-copy p { font-size: 14px; }
+  .about-tabs button { font-size: 12px; padding: 9px 3px; }
+  .currently-panel { grid-template-columns: 1fr 100px; padding: 17px; gap: 0 8px; }
+  .cozy-cats { width: 100px; }
+  .currently-panel li { font-size: 12px; padding-left: 26px; }
+  .currently-bottom p { font-size: 21px; }
+}

@@ -1,0 +1,31 @@
+/* Keep the new folders in a second desktop column, with room for the papers. */
+.desktop-icons { display: grid; grid-auto-flow: column; grid-template-rows: repeat(5, auto); grid-template-columns: repeat(2, 88px); column-gap: 12px; align-items: start; }
+.music-folder { position: relative; z-index: 4; }
+.travel-folder span { text-align: center; }
+.music-papers { position: absolute; top: 12px; left: 94px; display: flex; gap: 14px; width: 278px; padding: 5px; z-index: 6; }
+.paper-choice { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 126px; min-height: 173px; padding: 17px 10px 15px; border: 1px solid #c8bec9; background: #fffcf7; color: #776b89; box-shadow: 3px 8px 13px #4d3c5c38; text-decoration: none; border-radius: 3px 3px 12px 3px; transform-origin: bottom left; animation: paper-out .35s ease-out both; }
+.paper-choice::after { content: ''; position: absolute; right: 0; bottom: 0; width: 15px; height: 15px; background: linear-gradient(135deg, #e2d8e6 50%, #f8f1e7 51%); border-radius: 0 0 10px 0; }
+.instrument-paper { --tilt: -9deg; transform: rotate(-9deg); }
+.track-paper { --tilt: 7deg; transform: rotate(7deg); animation-delay: .07s; margin-top: 13px; }
+.paper-choice:hover { background: #fff; transform: rotate(0deg) translateY(-5px); }
+.paper-symbol { font: 44px/1.1 Gaegu, cursive; color: #ad9bc3; }
+.paper-lines { width: 70%; height: 25px; margin: 8px 0 13px; background: repeating-linear-gradient(transparent 0 7px, #e2dce6 7px 8px); }
+.paper-choice strong { font-size: 13px; white-space: nowrap; }
+.paper-choice small { font: 16px Gaegu, cursive; margin-top: 5px; white-space: nowrap; }
+@keyframes paper-out { from { opacity: 0; transform: translate(-70px, 35px) scale(.45) rotate(0deg); } to { opacity: 1; transform: translate(0,0) scale(1) rotate(var(--tilt)); } }
+.about-tabs { width: 160px; }
+.travel-page h1 { color: #8b819d; }
+.travel-postcard { position: relative; border: 1px solid #d5cabb; border-radius: 5px; margin-top: 28px; padding: 35px 25px; background: #f2eddd; text-align: center; transform: rotate(-2deg); box-shadow: 3px 5px 0 #e6dce6; }
+.travel-postcard > span:first-child { font-size: 35px; color: #a6ab8b; }
+.travel-postcard h2 { font-family: Gaegu, cursive; font-size: 26px; margin-top: 8px; }
+.postcard-stamp { position: absolute; right: 12px; top: 12px; border: 2px dotted #b5a4bd; padding: 2px 7px; color: #a38eb0; transform: rotate(9deg); }
+@media (max-width: 960px) { .about-tabs { width: 150px; } }
+@media (max-width: 700px) {
+  .desktop-icons { grid-template-columns: repeat(2, 72px); column-gap: 3px; }
+  .music-papers { position: fixed; top: 130px; left: 50%; transform: translateX(-50%); width: 278px; }
+  .welcome { left: 42%; top: 25%; }
+  .welcome p { font-size: 24px; }
+  .desktop-icons { z-index: 3; }
+  .about-tabs { width: 145px; }
+}
+@media (prefers-reduced-motion: reduce) { .paper-choice { animation: none; } }

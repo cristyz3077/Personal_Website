@@ -1,0 +1,17 @@
+.instrument-window { max-width: 840px; background: #faf6ef; }
+.instrument-window .journal-bar { padding: 13px 20px; gap: 14px; }
+.instrument-breadcrumb { font: 700 24px Gaegu,cursive; gap: 12px; justify-content: flex-start; align-items: center; }
+.instrument-breadcrumb a { text-decoration: none; font: inherit; padding: 0; }
+.instrument-breadcrumb a:hover { color: #a38bb6; }
+.instrument-breadcrumb > span[aria-hidden] { color: #b4a4c1; }
+.instrument-gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px 55px; padding: 36px 65px 44px; }
+.glass-instrument { position: relative; min-width: 0; margin: 0; text-align: center; border: 0; background: none; }
+.instrument-sway { transform-origin: 50% 65%; transform: rotate(0deg); }
+.crystal-instrument { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 4px 5px #b5b4df20); }
+.glass-instrument figcaption { margin-top: 4px; color: #978bb1; font: 700 28px/1.3 Gaegu,'Comic Sans MS',cursive; letter-spacing: .5px; }
+.glass-instrument:focus-visible { outline: 2px dashed #c0b2d9; outline-offset: 8px; border-radius: 7px; }
+.instrument-sparkle { position: absolute; top: 14%; right: 5%; font: 26px/1 Gaegu,cursive; color: #b2a4d8; opacity: 0; transform: scale(.7) rotate(-15deg); transition: opacity .2s ease,transform .25s ease; pointer-events: none; }
+.glass-instrument:hover .instrument-sparkle, .glass-instrument:focus-visible .instrument-sparkle { opacity: .8; transform: scale(1) rotate(0deg); }
+@media (max-width: 650px) { body { padding: 20px 12px; }.instrument-window .journal-bar { padding: 12px; }.instrument-breadcrumb { font-size: 19px; gap: 7px; }.instrument-gallery { padding: 28px 24px 35px; gap: 25px 20px; }.glass-instrument figcaption { font-size: 25px; } }
+@media (max-width: 420px) { .instrument-breadcrumb { font-size: 16px; gap: 6px; }.instrument-gallery { padding: 25px 14px 30px; gap: 24px 10px; }.glass-instrument figcaption { font-size: 23px; }.instrument-sparkle { font-size: 21px; } }
+@media (prefers-reduced-motion: reduce) { .instrument-sparkle { transition: none; } }
