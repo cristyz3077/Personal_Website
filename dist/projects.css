@@ -31,6 +31,14 @@ dialog.projects-window { width: min(1140px, calc(100vw - 36px)); border-radius: 
 .project-detail p { color: #8b7f96; font-size: 14px; }
 .project-notes { margin-top: 25px; border-top: 1px solid #e4dce7; padding-top: 8px; }
 .project-notes h2 { color: #8d7d9d; font-size: 14px; }
+.project-meta { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; margin: 0 0 20px; }
+.project-card-meta { display: flex; flex-wrap: wrap; align-items: start; gap: 7px; margin-bottom: 13px; color: #a093ac; font-size: 10px; font-weight: 700; }
+.project-card-meta > span:first-child { width: 100%; }
+.project-dates { color: #82748f; font-size: 12px; font-weight: 800; }
+.project-status { display: inline-block; padding: 4px 10px; border: 1px solid #dfd5e7; border-radius: 20px; background: #eee6f3; color: #8e7b9e; font-size: 10px; font-weight: 800; }
+.project-status.is-complete { background: #e8ede0; border-color: #d9dfcf; color: #7d8c72; }
+.project-notes p { line-height: 1.8; }
+.project-notes strong { color: #766282; }
 @media (max-width: 1000px) {
   .projects-browser { grid-template-columns: 185px minmax(0,1fr); }
   .project-sidebar { padding: 20px 10px 0; }
