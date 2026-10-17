@@ -4,41 +4,64 @@ const instrumentDrawings = {
   guitar: `<g transform="translate(192 150) rotate(25)" stroke="#9c7b68" stroke-width="3"><path d="M-12-59q-37-24-53 4-10 18 4 33-42 20-25 67 15 37 72 33 48-4 56-41 9-32-24-55 16-25 3-39-12-20-33-2Z" fill="#e7be89"/><path d="M-9-63v-63H10v63" fill="#a78a7c"/><path d="m-11-124-4-26 30-2-2 28Z" fill="#d6ae7d"/><circle cx="-7" cy="0" r="19" fill="#8e7669"/><circle cx="-7" cy="0" r="24" fill="none" stroke="#c29c77"/><rect x="-29" y="40" width="45" height="10" rx="2" fill="#9e7d6d"/><path d="M-12-145V44M-8-145V44M-4-145V44M0-145V44M4-145V44" stroke="#e3d5bc" stroke-width="1"/><path d="M-9-111h19m-19 15h19m-19 15h19m-19 15h19" stroke="#cfc1b2" stroke-width="1.5"/><path d="M-15-140h-8m8 12h-8m38-12h8m-8 12h8" stroke-width="5"/></g>`,
   saxophone: `<g transform="translate(183 150) rotate(-17)" stroke="#ad8d57" stroke-width="3" stroke-linejoin="round"><path d="M-5-111h28q19 0 19 22v100q0 49-44 49-44 0-44-45V-7h25v23q0 23 18 23 17 0 17-24v-104H-5Z" fill="#e8c782"/><path d="m-45-20-17-40h60l-17 40Z" fill="#f0dca2"/><ellipse cx="-32" cy="-60" rx="30" ry="9" fill="#bf9c5d"/><path d="M-5-111v-12h-24" fill="none" stroke="#736879" stroke-width="9"/><g fill="#fae9bb"><circle cx="29" cy="-67" r="7"/><circle cx="29" cy="-40" r="7"/><circle cx="29" cy="-13" r="7"/><circle cx="19" cy="15" r="7"/></g><path d="M46-80v79M39-70h13M39-43h13M39-16h13" fill="none" stroke-width="2"/></g>`
 };
-const instruments = {
-  piano: {title:'Piano', description:'A space for piano pieces, practice sessions, and little improvisations. From familiar melodies to new ideas, one key at a time.'},
-  flute: {title:'Flute', description:'A space for flute melodies, breath, and phrasing. Little moments of music, carried on a stream of air.'},
-  guitar: {title:'Guitar', description:'A space for guitar chords, gentle strumming, and melodies taking shape. A few strings, and so many possibilities.'},
-  saxophone: {title:'Saxophone', description:'A space for the saxophone’s warm tone, expressive melodies, and musical experiments. Finding a little character in every note.'}
-};
-function instrumentScene(drawing) {
-  return `<svg viewBox="0 0 400 280"><defs><linearGradient id="room-sky" x2="0" y2="1"><stop stop-color="#aeb6d6"/><stop offset="1" stop-color="#f3d6be"/></linearGradient></defs><rect width="400" height="280" fill="#e9decf"/><rect x="18" y="15" width="260" height="203" rx="4" fill="url(#room-sky)"/><path d="M27 191v-51h31v51m13 0v-69h38v69m12 0v-39h32v39m12 0v-85h35v85m13 0v-55h40v55" fill="#a6a7bc" opacity=".7"/><path d="M0 224h400v56H0" fill="#d3b8a4"/><path d="M18 15v203h260V15ZM148 15v203M18 114h260" fill="none" stroke="#f5ebd8" stroke-width="10"/><path d="M0 0h16v225M284 0h25v225" stroke="#c2b1aa" stroke-width="5" fill="none"/><path d="M365 233v-91m0 53q-41-2-31-35 30-3 31 35m1-10q43-2 32-37-28 4-32 37m-1-19q-32-5-23-30 24 1 23 30" fill="#9ca68d" stroke="#83937b" stroke-width="2"/><path d="m338 215 9 48h37l10-48Z" fill="#d0bdc9" stroke="#aa96ad" stroke-width="2"/>${drawing}<path d="m321 52 3 8 9 1-7 6 2 9-7-5-7 5 2-9-7-6 9-1z" fill="#f6e6bc" stroke="#c8b28c"/><circle cx="56" cy="57" r="3" fill="#fff1d4"/></svg>`;
+const instrumentNames = {piano:'Piano', flute:'Flute', guitar:'Guitar', saxophone:'Saxophone'};
+
+// Inline vectors keep the instruments part of the page, with no image backgrounds.
+function crystalInstrument(key) {
+  const artwork = instrumentDrawings[key]
+    .replace(/fill="#[0-9a-f]+"/gi, `fill="url(#glass-${key})"`)
+    .replace(/stroke="#[0-9a-f]+"/gi, 'stroke="#a8a4d5"');
+  return `<svg class="crystal-instrument" viewBox="0 0 360 280" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="glass-${key}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#e1d7fa" stop-opacity=".48"/>
+        <stop offset=".23" stop-color="#c8b7ef" stop-opacity=".65"/>
+        <stop offset=".45" stop-color="#eef7ff" stop-opacity=".75"/>
+        <stop offset=".62" stop-color="#b5d4ed" stop-opacity=".6"/>
+        <stop offset="1" stop-color="#b3a4df" stop-opacity=".64"/>
+      </linearGradient>
+      <clipPath id="glass-clip-${key}">${artwork}</clipPath>
+    </defs>
+    <g class="glass-body" stroke-opacity=".72">${artwork}</g>
+    <g clip-path="url(#glass-clip-${key})" pointer-events="none">
+      <path d="M56 0h42L280 280h-42Z" fill="#fff" opacity=".3"/>
+      <path d="M117 0h9l182 280h-9Z" fill="#fff" opacity=".65"/>
+      <path d="M0 194 360 73v35L0 229Z" fill="#c0dff7" opacity=".23"/>
+    </g>
+  </svg>`;
 }
-const instrumentTabs = [...document.querySelectorAll('[data-instrument]')];
-function selectInstrument(key, focus = false) {
-  const item = instruments[key];
-  if (!item) return;
-  for (const tab of instrumentTabs) {
-    const selected = tab.dataset.instrument === key;
-    tab.setAttribute('aria-selected', String(selected));
-    tab.tabIndex = selected ? 0 : -1;
-    if (selected && focus) tab.focus();
+const gallery = document.querySelector('#instrument-gallery');
+gallery.innerHTML = Object.entries(instrumentNames).map(([key,name])=>`
+  <figure class="glass-instrument" tabindex="0" aria-labelledby="name-${key}">
+    <div class="instrument-sway">${crystalInstrument(key)}</div>
+    <span class="instrument-sparkle" aria-hidden="true">✧</span>
+    <figcaption id="name-${key}">${name}</figcaption>
+  </figure>`).join('');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+for (const instrument of gallery.querySelectorAll('.glass-instrument')) {
+  const artwork = instrument.querySelector('.instrument-sway');
+  let motion;
+  function startWiggle() {
+    if (reducedMotion.matches) return;
+    const current = getComputedStyle(artwork).transform;
+    motion?.cancel();
+    motion = artwork.animate([
+      {transform: current === 'none' ? 'rotate(0deg)' : current},
+      {transform:'rotate(-2deg)', offset:.25},
+      {transform:'rotate(2deg)', offset:.75},
+      {transform:'rotate(0deg)'}
+    ], {duration:1100, iterations:Infinity, easing:'ease-in-out'});
   }
-  document.querySelector('#instrument-panel').setAttribute('aria-labelledby','tab-'+key);
-  document.querySelector('#instrument-title').textContent = item.title+' ♡';
-  document.querySelector('#instrument-description').textContent = item.description;
-  document.querySelector('#instrument-art').innerHTML = instrumentScene(instrumentDrawings[key]);
+  function settle() {
+    const current = getComputedStyle(artwork).transform;
+    motion?.cancel();
+    if (!reducedMotion.matches) motion = artwork.animate([
+      {transform:current}, {transform:'rotate(0deg)'}
+    ], {duration:280, easing:'ease-out'});
+  }
+  instrument.addEventListener('pointerenter',startWiggle);
+  instrument.addEventListener('pointerleave',settle);
+  instrument.addEventListener('focus',startWiggle);
+  instrument.addEventListener('blur',settle);
+  reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches)motion?.cancel();});
 }
-instrumentTabs.forEach((tab,index)=>{
-  tab.insertAdjacentHTML('afterbegin',`<svg viewBox="0 0 400 280" aria-hidden="true">${instrumentDrawings[tab.dataset.instrument]}</svg>`);
-  tab.addEventListener('click',()=>selectInstrument(tab.dataset.instrument));
-  tab.addEventListener('keydown',event=>{
-    let next;
-    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') next = (index+1)%instrumentTabs.length;
-    if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') next = (index+instrumentTabs.length-1)%instrumentTabs.length;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = instrumentTabs.length-1;
-    if (next === undefined) return;
-    event.preventDefault(); selectInstrument(instrumentTabs[next].dataset.instrument,true);
-  });
-});
-selectInstrument('piano');
