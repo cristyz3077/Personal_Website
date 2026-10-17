@@ -1,17 +1,25 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#c4b8d9"><title>Instruments · Cristy's little corner</title><link rel="stylesheet" href="music-pages.css"></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#c4b8d9"><title>Instruments · Cristy's little corner</title><link rel="stylesheet" href="music-pages.css"><link rel="stylesheet" href="instruments.css"></head>
 <body>
-<main class="music-journal">
-  <header class="journal-bar"><span>♬ instruments.txt</span><a href="index.html#music" aria-label="Close instruments and return to Music folder">×</a></header>
-  <div class="journal-content">
-    <nav aria-label="Music pages"><a class="back-link" href="index.html#music">← Back to my music folder</a><a href="tracks.html">Music Tracks ↗</a></nav>
-    <p class="journal-eyebrow">CRISTY’S MUSIC FOLDER / 01</p>
-    <h1>the things I play ♡</h1>
-    <p class="journal-intro">A little space for instruments, practice sessions, and melodies in the making.</p>
-    <section class="empty-sheet"><span class="music-mark" aria-hidden="true">♬</span><h2>More notes to come</h2><p>My instruments and recordings will live here.<br>There’s a little more music on the way.</p><div class="staff-lines" aria-hidden="true"></div><span class="sheet-footer">one note at a time ✧</span></section>
-    <footer>made of little moments & melodies</footer>
+<main class="music-journal instrument-window">
+  <header class="journal-bar"><nav class="instrument-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Desktop</a><span aria-hidden="true">›</span><a href="index.html#music">Music</a><span aria-hidden="true">›</span><span>Instruments</span></nav><a href="index.html#music" aria-label="Close instruments and return to Music folder">×</a></header>
+  <div class="instrument-browser">
+    <div class="instrument-sidebar"><div class="instrument-tabs" role="tablist" aria-label="Instruments" aria-orientation="vertical">
+      <button id="tab-piano" role="tab" aria-selected="true" aria-controls="instrument-panel" data-instrument="piano">Piano</button>
+      <button id="tab-flute" role="tab" aria-selected="false" aria-controls="instrument-panel" tabindex="-1" data-instrument="flute">Flute</button>
+      <button id="tab-guitar" role="tab" aria-selected="false" aria-controls="instrument-panel" tabindex="-1" data-instrument="guitar">Guitar</button>
+      <button id="tab-saxophone" role="tab" aria-selected="false" aria-controls="instrument-panel" tabindex="-1" data-instrument="saxophone">Saxophone</button>
+    </div><span class="sidebar-note" aria-hidden="true">♫</span></div>
+    <section id="instrument-panel" class="instrument-panel" role="tabpanel" aria-labelledby="tab-piano" tabindex="0">
+      <div id="instrument-art" class="instrument-art" aria-hidden="true"></div>
+      <p class="instrument-eyebrow">THE THINGS I PLAY</p>
+      <h1 id="instrument-title">Piano ♡</h1>
+      <p id="instrument-description">A space for piano pieces, practice sessions, and little improvisations.</p>
+      <a class="tracks-link" href="tracks.html">Listen to the sounds I make <span aria-hidden="true">↗</span></a>
+    </section>
   </div>
 </main>
+<script src="instruments.js"></script>
 </body>
 </html>
