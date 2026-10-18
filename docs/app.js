@@ -13,7 +13,9 @@ const explorerTree = {
       {id:'project-cpu',name:'32-bit RISC-V Processor',kind:'file',app:'projects',projectId:'cpu',keywords:'RV32I CPU processor'},
       {id:'project-robot',name:'Delivery Robot PCB',kind:'file',app:'projects',projectId:'bot',keywords:'autonomous robotics STM32'},
       {id:'project-vest',name:'VibraSound Vest',kind:'file',app:'projects',projectId:'vest',keywords:'wearable music vibrations'},
-      {id:'project-agent',name:'AI Verilog Optimization Agent',kind:'file',app:'projects',projectId:'hackathon',keywords:'CPU design hackathon'}
+      {id:'project-hackathon',name:'Hackathon',kind:'folder',keywords:'hack the chip competition',children:[
+        {id:'project-agent',name:'AI Verilog Optimization Agent',kind:'file',app:'projects',projectId:'hackathon',keywords:'Verilog optimization hackathon'}
+      ]}
     ]},
     {id:'music',name:'Music',kind:'folder',keywords:'songs tracks instruments',children:[
       {id:'instruments',name:'Instruments',kind:'folder',keywords:'crystal gallery instruments',children:[

@@ -10,7 +10,7 @@ const projectItems = [
     `I'm currently working toward implementing a five-stage pipeline (Fetch, Decode, Execute, Memory, and Writeback), along with hazard detection and data forwarding to improve instruction execution.`,
     `My next step is to use OpenROAD to explore the physical design process and turn my processor design into a chip layout.`
   ]},
-  {id:'hackathon', title:'AI-Powered Verilog Optimization Agent', category:'CPU Design', filters:['CPU Design'], link:'https://lnkd.in/gHjB3MuT', linkLabel:'View hackathon project', subtitle:'Amazon Annapurna Labs · Hack the Chip · NYU Tandon', description:'An AI agent that generates, verifies, and optimizes Verilog designs with automated testbenches and Yosys.', details:[
+  {id:'hackathon', title:'AI-Powered Verilog Optimization Agent', category:'Hackathon', filters:['Hackathon'], link:'https://lnkd.in/gHjB3MuT', linkLabel:'View hackathon project', subtitle:'Amazon Annapurna Labs · Hack the Chip · NYU Tandon', description:'An AI agent that generates, verifies, and optimizes Verilog designs with automated testbenches and Yosys.', details:[
     `A hackathon project where my team developed an AI-powered agent that generates, verifies, and optimizes Verilog designs. Users can either describe a digital circuit to generate Verilog code or submit their own code for verification.`,
     `The system uses automated testbenches to identify errors and provide feedback for improvements. Once a design passes verification, the agent attempts to reduce its logic gate count using Yosys while ensuring the optimized design maintains the same functionality.`,
     `I focused on the optimization process, helping coordinate synthesis results, testbench verification, and iterative improvements.`
@@ -27,7 +27,7 @@ const projectItems = [
   ]}
 ];
 projectArtwork.hackathon = `<svg viewBox="0 0 360 240" aria-hidden="true"><rect width="360" height="240" fill="#dcd6e7"/><path d="M0 190 360 75M0 50l360 130" stroke="#cec4df" stroke-width="14"/><rect x="43" y="37" width="274" height="166" rx="12" fill="#faf5ec" stroke="#b5a4c6" stroke-width="3"/><path d="M43 65h274" stroke="#d4c7df" stroke-width="2"/><g fill="#c5b1d5"><circle cx="59" cy="51" r="4"/><circle cx="72" cy="51" r="4"/><circle cx="85" cy="51" r="4"/></g><text x="62" y="98" fill="#9983ad" font-family="monospace" font-size="16">module optimize;</text><path d="M65 118h95M65 133h70M65 148h90M65 163h60" stroke="#c1b2ce" stroke-width="5" stroke-linecap="round"/><path d="m185 140 22 0-7-7m7 7-7 7" stroke="#a792bd" stroke-width="3" fill="none"/><rect x="224" y="103" width="62" height="62" rx="8" fill="#a8b3a1" stroke="#85937f" stroke-width="2"/><path d="m238 133 11 11 22-25" stroke="#fff9eb" stroke-width="4" fill="none"/><text x="242" y="186" fill="#9a86ac" font-family="monospace" font-size="11">YOSYS</text></svg>`;
-const projectCategories = ['All Projects','CPU Design','Robotics','Wearables'];
+const projectCategories = ['All Projects','CPU Design','Robotics','Wearables','Hackathon'];
 
 function projectMetadata(project, card = false) {
   if (!project.dates && !project.status) return '';
