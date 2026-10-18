@@ -9,4 +9,4 @@ A cozy desktop portfolio using your twilight desk artwork. The website is in `di
 - Adjust colors, placement, and responsive styles in `dist/styles.css`.
 - The supplied background is copied to `dist/assets/twilight-desk.png`.
 
-Features: keyboard-accessible desktop icons, a taskbar File Explorer with folder navigation and search, modal app windows, minimize/restore, Start menu search, local time, a small command terminal, and optional synthesized ambient sound. The layout adapts for phones and honors reduced-motion preferences. Google Fonts are optional; system font fallbacks work offline.
+Features: keyboard-accessible desktop icons, a taskbar File Explorer with folder navigation and search, modal app windows, minimize/restore, Start menu search, local time, a small command terminal, and a shutdown/restart screen. The layout adapts for phones and honors reduced-motion preferences. Google Fonts are optional; system font fallbacks work offline.

@@ -61,7 +61,7 @@
   <label class="search"><svg><use href="#i-search"/></svg><input id="search" type="search" placeholder="Type something…" aria-label="Find a portfolio window" autocomplete="off"></label>
   <button id="explorer-button" class="explorer-launcher" data-app="explorer" aria-label="Open File Explorer" title="File Explorer"><svg aria-hidden="true"><use href="#i-explorer"/></svg><span>Files</span></button>
   <button id="active-app" class="active-app" hidden></button>
-  <div class="system-tray"><svg class="wifi" aria-label="Cozy and connected" role="img"><use href="#i-wifi"/></svg><button id="sound-button" title="Turn ambient sound on" aria-label="Turn ambient sound on" aria-pressed="false">♫<span class="sound-off">×</span></button><time id="tray-time"></time><span class="battery" aria-label="Fully charged" role="img"><i></i></span></div>
+  <div class="system-tray"><svg class="wifi" aria-label="Cozy and connected" role="img"><use href="#i-wifi"/></svg><time id="tray-time"></time><span class="battery" aria-label="Fully charged" role="img"><i></i></span></div>
 </footer>
 <dialog id="app-window" aria-labelledby="window-title">
   <header class="window-bar"><div><svg id="window-icon"><use href="#i-about"/></svg><span id="window-title"></span></div><div class="window-controls"><button id="minimize" aria-label="Minimize window">−</button><button id="close-window" aria-label="Close window">×</button></div></header>
@@ -71,7 +71,7 @@
 <script src="about.js"></script>
 <script src="projects.js?v=20261017-hackathon"></script>
 <script src="contact.js"></script>
-<script src="app.js?v=20261017-hackathon"></script>
-<script src="power.js"></script>
+<script src="app.js?v=20261017-no-tray-sound"></script>
+<script src="power.js?v=20261017-no-tray-sound"></script>
 </body>
 </html>

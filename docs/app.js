@@ -316,16 +316,3 @@ window.addEventListener('resize', () => {
   dialog.style.top = `${Math.max(0, Math.min(innerHeight - 80, rect.top))}px`;
   dialog.style.margin = '0';
 });
-// Gentle synthesized rain: activated only by the visitor; no external audio needed.
-let audioContext, audioSource, audioGain;
-const soundButton=document.querySelector('#sound-button');
-soundButton.addEventListener('click',async()=>{
- const enabled=soundButton.getAttribute('aria-pressed')!=='true';
- try {
-  if(enabled){
-   if(!audioContext){const AudioCtx=window.AudioContext||window.webkitAudioContext;if(!AudioCtx)throw new Error('Audio unavailable');audioContext=new AudioCtx();const buffer=audioContext.createBuffer(1,audioContext.sampleRate*4,audioContext.sampleRate),data=buffer.getChannelData(0);let last=0;for(let i=0;i<data.length;i++){last=(last+Math.random()*.04-.02)/1.02;data[i]=last*3.5;}audioSource=audioContext.createBufferSource();audioSource.buffer=buffer;audioSource.loop=true;audioGain=audioContext.createGain();audioGain.gain.value=.24;audioSource.connect(audioGain);audioGain.connect(audioContext.destination);audioSource.start();}
-   await audioContext.resume();
-  }else if(audioContext)await audioContext.suspend();
-  soundButton.setAttribute('aria-pressed',String(enabled));soundButton.setAttribute('aria-label',enabled?'Turn ambient sound off':'Turn ambient sound on');soundButton.title=enabled?'Turn ambient sound off':'Turn ambient sound on';soundButton.querySelector('.sound-off').hidden=enabled;
- }catch{soundButton.title='Ambient audio is unavailable in this browser';}
-});
