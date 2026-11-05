@@ -76,7 +76,7 @@ dialog.about-window {
   transform: rotate(-1deg);
   box-shadow: 0 3px 9px #8a7c8e0b;
 }
-.profile-frame img { display: block; width: 100%; height: auto; aspect-ratio: 0.86; object-fit: cover; object-position: center 40%; border: 1px solid #d3c7bd; border-radius: 12px; }
+.profile-frame img { display: block; width: 100%; height: auto; aspect-ratio: 0.86; object-fit: cover; object-position: 30% center; border: 1px solid #d3c7bd; border-radius: 12px; }
 .photo-star { position: absolute; color: #9185b1; text-shadow: 1px 1px #fff; font: 48px/1 Gaegu, cursive; }
 .star-one { top: -18px; right: -16px; transform: rotate(15deg); }
 .star-two { left: 5px; bottom: -14px; font-size: 35px; color: #b5a17f; }

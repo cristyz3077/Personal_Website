@@ -8,7 +8,7 @@ const aboutPage = `
     <div class="about-main">
       <section id="panel-profile" role="tabpanel" aria-labelledby="tab-profile" tabindex="0">
         <div class="profile-intro">
-          <figure class="profile-frame"><img src="assets/profile.png" alt="My mirror selfie" width="958" height="1034"><span class="photo-star star-one" aria-hidden="true">✧</span><span class="photo-star star-two" aria-hidden="true">✧</span><span class="photo-heart" aria-hidden="true">♡</span></figure>
+          <figure class="profile-frame"><img src="assets/profile-brooklyn.jpeg" alt="Me looking out over the water toward the Brooklyn Bridge at night" width="5712" height="4284"><span class="photo-star star-one" aria-hidden="true">✧</span><span class="photo-star star-two" aria-hidden="true">✧</span><span class="photo-heart" aria-hidden="true">♡</span></figure>
           <div class="profile-copy"><h1>hi, i'm cristy! ♡</h1><p>i'm a third-year electrical &amp; computer engineering student at NYU Tandon interested in computer chip design.</p><p>When i'm not surrounded by circuits and code, you'll probably find me wandering around the city, or making music whenever inspiration strikes.</p><p>welcome to my little corner of the internet!</p></div>
         </div>
         <ul class="profile-tags" aria-label="My interests"><li>Verilog</li><li>Altium</li><li>C++</li><li>Embedded Systems</li><li>CPU Design</li><li>and more…</li></ul>
