@@ -40,12 +40,6 @@
     if (dialog.open) dialog.close();
     currentApp = null; active.hidden = true;
     search.value = ''; filterApps('');
-    if (audioContext && audioContext.state === 'running') audioContext.suspend().catch(()=>{});
-    const sound = document.querySelector('#sound-button');
-    sound.setAttribute('aria-pressed','false');
-    sound.setAttribute('aria-label','Turn ambient sound on');
-    sound.title = 'Turn ambient sound on';
-    sound.querySelector('.sound-off').hidden = false;
   }
   function showLoading(title, text) {
     heading.textContent = title; message.textContent = text;

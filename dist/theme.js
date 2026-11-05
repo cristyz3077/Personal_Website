@@ -1,4 +1,4 @@
-// The current twilight/lavender design is Dark; the sunlit blue design is Light.
+// Persist the skyline theme across desktop and music pages.
 (() => {
   const key = 'cristy-site-theme';
   const root = document.documentElement;
@@ -9,13 +9,13 @@
     root.dataset.theme = theme;
     const light = theme === 'light';
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = light ? '#dbeafb' : '#c4b8d9';
+    if (meta) meta.content = light ? '#eedbdc' : '#302b49';
     document.querySelectorAll('[data-theme-toggle]').forEach(button => {
       button.setAttribute('aria-pressed', String(light));
       button.setAttribute('aria-label', `Switch to ${light ? 'dark' : 'light'} mode`);
-      button.title = `${light ? 'Light' : 'Dark'} mode · Switch to ${light ? 'dark' : 'light'} mode`;
-      button.querySelector('[data-theme-icon]').textContent = light ? '☾' : '☀';
-      button.querySelector('[data-theme-label]').textContent = light ? 'Dark mode' : 'Light mode';
+      button.title = `${light ? 'Day' : 'Night'} mode · Switch to ${light ? 'dark' : 'light'} mode`;
+      button.querySelector('[data-theme-icon]').textContent = light ? '\u2600' : '\u263e';
+      button.querySelector('[data-theme-label]').textContent = light ? 'Day mode' : 'Night mode';
     });
     if (persist) { try { localStorage.setItem(key, theme); } catch {} }
   }

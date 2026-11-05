@@ -1,42 +1,42 @@
-/* One site-wide switch; Dark preserves the original twilight design. */
+/* Skyline themes shared by the desktop and music pages. */
 .desktop-clock { position:absolute; right:28px; top:24px; display:flex; align-items:center; gap:11px; z-index:2; }
 .desktop-clock .clock-widget { position:static; }
 .theme-toggle { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; min-width:58px; min-height:58px; padding:6px 9px; border:1px solid #b8a9c6; border-radius:16px; color:#7c6c91; background:#f9f2edeb; backdrop-filter:blur(12px); box-shadow:0 4px 18px #5b4a651b; }
 .theme-toggle [data-theme-icon] { font:25px/1 'Segoe UI Symbol',sans-serif; }
 .theme-toggle [data-theme-label] { font-size:9px; font-weight:800; white-space:nowrap; }
 .theme-toggle:hover { background:#e9dfee; }
-:root[data-theme="light"] { --ink:#425779; --cream:#f8fbff; --lavender:#dbe9fa; --line:#a8bdd7; --studio-bg:#f8fbff; --studio-ink:#536c8a; --studio-muted:#7e99b4; --studio-accent:#88afd8; --studio-soft:#e2edf9; --studio-line:#d7e4f2; --studio-bar:#e5eef9; --record-outer:#7e9fbd; --record-inner:#b6d7ee; --record-label:#e6f4fc; }
-:root[data-theme="light"] body { background-color:#dceafb; }
-:root[data-theme="light"] body:has(.music-journal) { background-image:linear-gradient(#91b1db12,#91b1db12),url('assets/daylight-desk-matched.png'); }
+:root[data-theme="light"] { --ink:#51465f; --cream:#fff8f2; --lavender:#e8d8e9; --line:#bdabc7; --studio-bg:#fff8f2; --studio-ink:#536c8a; --studio-muted:#7e99b4; --studio-accent:#88afd8; --studio-soft:#e2edf9; --studio-line:#d7e4f2; --studio-bar:#e5eef9; --record-outer:#7e9fbd; --record-inner:#b6d7ee; --record-label:#e6f4fc; }
+:root[data-theme="light"] body { background-color:#d6b8cc; }
+:root[data-theme="light"] body:has(.music-journal) { background-image:linear-gradient(#91b1db12,#91b1db12),url('assets/nyc-day.png'); }
 :root[data-theme="light"] .wallpaper {
-  --wallpaper-image: url('assets/daylight-desk-matched.png');
+  --wallpaper-image: url('assets/nyc-day.png');
   --wallpaper-tint: transparent;
   /* Daylight edit of the night artwork, using the same framing and crop. */
 }
-:root[data-theme="light"] .theme-toggle, :root[data-theme="light"] .clock-widget { background:#f7fbfff0; border-color:#b3c9e0; color:#506889; }
+:root[data-theme="light"] .theme-toggle, :root[data-theme="light"] .clock-widget { background:#fff8f2f0; border-color:#b3c9e0; color:#665474; }
 :root[data-theme="light"] .theme-toggle:hover { background:#e0edfc; }
-:root[data-theme="light"] .desktop-icon span { background:#f4f9fff0; color:#465d80; }
+:root[data-theme="light"] .desktop-icon span { background:#fff7f2f0; color:#51465f; }
 :root[data-theme="light"] .desktop-icon:hover { background:#eaf4ff50; border-color:#e7f2ff; }
 :root[data-theme="light"] .desktop-icon svg { stroke:#7992ae; }
 :root[data-theme="light"] .welcome p { color:#fffdf2; text-shadow:0 2px 7px #506f9d65; }
-:root[data-theme="light"] .taskbar { background:#f2f7fdef; border-color:#fff; box-shadow:0 -2px 12px #6689b129; }
-:root[data-theme="light"] .start-button { background:#f9fcff; border-color:#a8bfde; }
+:root[data-theme="light"] .taskbar { background:#f5e9e5ef; border-color:#fff; box-shadow:0 -2px 12px #6689b129; }
+:root[data-theme="light"] .start-button { background:#fffaf4; border-color:#b7a0c6; }
 :root[data-theme="light"] .start-button:hover, :root[data-theme="light"] .start-button[aria-expanded="true"] { background:#dceafa; }
-:root[data-theme="light"] .search { background:#fbfdff66; border-color:#becfe3; }
-:root[data-theme="light"] .search input::placeholder { color:#91a4bc; }
-:root[data-theme="light"] .start-menu { background:#f7fbfff5; border-color:#a8bdd7; }
+:root[data-theme="light"] .search { background:#fffaf666; border-color:#cbb9cd; }
+:root[data-theme="light"] .search input::placeholder { color:#948199; }
+:root[data-theme="light"] .start-menu { background:#fff8f2f5; border-color:#bdabc7; }
 :root[data-theme="light"] .menu-item:hover { background:#e3edfa; }
 :root[data-theme="light"] .menu-eyebrow { color:#8aa1bf; }
 :root[data-theme="light"] .start-menu footer { border-color:#d7e4f2; }
 :root[data-theme="light"] .active-app { background:#e1ecf9; border-color:#a6bdd9; }
-:root[data-theme="light"] dialog { background:#fbfdff; border-color:#a7bdd8; color:#4c6182; }
-:root[data-theme="light"] .window-bar { background:linear-gradient(110deg,#e3edf9,#f5f8fd); border-color:#d0deed; }
+:root[data-theme="light"] dialog { background:#fffaf6; border-color:#a7bdd8; color:#4c6182; }
+:root[data-theme="light"] .window-bar { background:linear-gradient(110deg,#e9d9e7,#fff5ee); border-color:#d0deed; }
 :root[data-theme="light"] .window-controls button { background:#f6faff; border-color:#b7cae2; color:#587198; }
 :root[data-theme="light"] .window-controls button:hover { background:#d6e5f7; }
-:root[data-theme="light"] .window-content { background:#fbfdff; }
-:root[data-theme="light"] .about-window .window-content { background:radial-gradient(ellipse at 15% 5%,#fff 0%,transparent 65%),#f8fbff; }
+:root[data-theme="light"] .window-content { background:#fffaf6; }
+:root[data-theme="light"] .about-window .window-content { background:radial-gradient(ellipse at 15% 5%,#fff 0%,transparent 65%),#fff8f2; }
 :root[data-theme="light"] .about-tabs button, :root[data-theme="light"] .profile-tags li { background:#e7effa; border-color:#e0e9f6; color:#607ca4; }
-:root[data-theme="light"] .about-tabs button[aria-selected="true"] { background:#dbe9fa; border-color:#bdd0e9; color:#4b6a98; }
+:root[data-theme="light"] .about-tabs button[aria-selected="true"] { background:#e8d8e9; border-color:#bdd0e9; color:#4b6a98; }
 :root[data-theme="light"] .about-tabs button[aria-selected="true"]::after { background:#9fbbe2; }
 :root[data-theme="light"] .profile-copy h1 { color:#7799cb; }
 :root[data-theme="light"] .profile-copy p { color:#617594; }
@@ -48,7 +48,7 @@
 :root[data-theme="light"] .project-sidebar { background:linear-gradient(135deg,#f1f6fd,#f9fbfe); border-color:#e2eaf5; }
 :root[data-theme="light"] .project-filter { color:#6881a4; }
 :root[data-theme="light"] .project-filter[aria-pressed="true"], :root[data-theme="light"] .project-filter:hover { background:#dfebfa; color:#526f99; }
-:root[data-theme="light"] .project-workspace { background:#f8fbff; }
+:root[data-theme="light"] .project-workspace { background:#fff8f2; }
 :root[data-theme="light"] .project-cover { background:#e4effb; border-color:#d2e2f3; }
 :root[data-theme="light"] .project-cover svg > rect:first-child { fill:#e4effb; }
 :root[data-theme="light"] .project-cover svg > path { stroke:#c9dcf2; }
@@ -63,7 +63,7 @@
 :root[data-theme="light"] .project-detail h1, :root[data-theme="light"] .project-notes h2 { color:#6380a9; }
 :root[data-theme="light"] .project-category, :root[data-theme="light"] .project-back, :root[data-theme="light"] .project-subtitle { color:#89a1c3!important; }
 :root[data-theme="light"] .project-notes { border-color:#e0e9f6; }
-:root[data-theme="light"] .contact-window .window-content { background:radial-gradient(ellipse at 30% 50%,#fff,transparent 70%),#f8fbff; }
+:root[data-theme="light"] .contact-window .window-content { background:radial-gradient(ellipse at 30% 50%,#fff,transparent 70%),#fff8f2; }
 :root[data-theme="light"] .contact-card { border-color:#e1eaf5; background:#fcfdff77; }
 :root[data-theme="light"] .contact-card:hover { background:#e8f1fc; border-color:#cdddf3; }
 :root[data-theme="light"] .contact-icon { background:#9dbde7; }
@@ -71,7 +71,7 @@
 :root[data-theme="light"] .contact-card-text strong, :root[data-theme="light"] .contact-welcome h1 { color:#526d96; }
 :root[data-theme="light"] .contact-card-text > span { color:#8da7cc; }
 :root[data-theme="light"] .send-message { background:#e2ecfa; border-color:#d4e3f6; color:#7594c1; }
-:root[data-theme="light"] .resume-toolbar { background:#f8fbff; border-color:#dbe6f4; }
+:root[data-theme="light"] .resume-toolbar { background:#fff8f2; border-color:#dbe6f4; }
 :root[data-theme="light"] .resume-document-label { color:#6580a5; }
 :root[data-theme="light"] .resume-actions a { color:#7899c2; border-color:#d7e4f5; }
 :root[data-theme="light"] .resume-actions .resume-download { background:#e3edfa; }
@@ -81,19 +81,65 @@
 :root[data-theme="light"] .terminal { background:#2c3748; color:#d7e9fa; }
 :root[data-theme="light"] .terminal label { color:#a4c5e5; }
 :root[data-theme="light"] .terminal input { color:#f4faff; }
-:root[data-theme="light"] .music-journal { background:#f9fcff; border-color:#aabfdc; color:#61799d; }
+:root[data-theme="light"] .music-journal { background:#fffaf4; border-color:#aabfdc; color:#61799d; }
 :root[data-theme="light"] .journal-bar { background:#e4edf9; border-color:#d2e1f4; color:#617fa8; }
 :root[data-theme="light"] .crystal-instrument { filter:hue-rotate(-24deg) drop-shadow(0 4px 5px #9bb9dd20); }
 :root[data-theme="light"] .glass-instrument figcaption, :root[data-theme="light"] .instrument-sparkle { color:#7f9dc9; }
-:root[data-theme="light"] .paper-choice { background:#fbfdff; border-color:#b8cce7; color:#6d89b0; }
+:root[data-theme="light"] .paper-choice { background:#fffaf6; border-color:#b8cce7; color:#6d89b0; }
 :root[data-theme="light"] .paper-symbol { color:#99b7df; }
 :root[data-theme="light"] .eyebrow { color:#8ca4c7; }
 :root[data-theme="light"] .placeholder { background:#f1f6fd; border-color:#c6d7ee; color:#829bbb; }
-:root[data-theme="light"] .travel-postcard { background:#f2f7fd; border-color:#cbdcf1; box-shadow:3px 5px 0 #e2ebf8; }
-:root[data-theme="light"] .explorer-launcher { background:#f4f9ff; border-color:#b8cee8; }
+:root[data-theme="light"] .travel-postcard { background:#f5e9e5; border-color:#cbdcf1; box-shadow:3px 5px 0 #e2ebf8; }
+:root[data-theme="light"] .explorer-launcher { background:#fff7f2; border-color:#b8cee8; }
 :root[data-theme="light"] .explorer-toolbar, :root[data-theme="light"] .explorer-sidebar { background:#eef5fd; border-color:#d6e4f4; }
-:root[data-theme="light"] .explorer-history button, :root[data-theme="light"] .explorer-search { background:#f9fcff; border-color:#c6d9ef; color:#6d89af; }
+:root[data-theme="light"] .explorer-history button, :root[data-theme="light"] .explorer-search { background:#fffaf4; border-color:#c6d9ef; color:#6d89af; }
 :root[data-theme="light"] .explorer-breadcrumbs button, :root[data-theme="light"] .explorer-sidebar button { color:#6986af; }
 :root[data-theme="light"] .explorer-sidebar button:hover { background:#e0ecfb; }
-:root[data-theme="light"] .explorer-main { background:#fbfdff; }
+:root[data-theme="light"] .explorer-main { background:#fffaf6; }
 @media(max-width:700px) { .desktop-clock { top:17px; right:13px; gap:7px; }.theme-toggle { min-width:48px; min-height:52px; padding:5px 7px; border-radius:13px; }.theme-toggle [data-theme-icon] { font-size:22px; }.theme-toggle [data-theme-label] { font-size:8px; } }
+
+/* Photo framing stays consistent when switching between day and night. */
+:root { --skyline-photo:url('assets/nyc-night-matched.png'); --chrome-ink:#f4ecfa; --chrome-bg:#302b49e8; --chrome-edge:#88749e; --chrome-button:#514467b8; --chrome-hover:#68547f; }
+:root[data-theme="light"] { color-scheme:light; --skyline-photo:url('assets/nyc-day.png'); --chrome-ink:#51465f; --chrome-bg:#f3e9e4ed; --chrome-edge:#b7a0c6; --chrome-button:#fff8f0cf; --chrome-hover:#e9d9e7; }
+:root[data-theme="dark"] { color-scheme:dark; }
+.wallpaper, :root[data-theme="light"] .wallpaper { --wallpaper-image:var(--skyline-photo); --wallpaper-position:center center; --wallpaper-tint:transparent; }
+body:has(.music-journal), :root[data-theme="light"] body:has(.music-journal) { background-image:linear-gradient(#3e30451a,#3e30451a),var(--skyline-photo); }
+.taskbar, :root[data-theme="light"] .taskbar { background:var(--chrome-bg); color:var(--chrome-ink); border-color:var(--chrome-edge); backdrop-filter:blur(18px); --ink:var(--chrome-ink); }
+.theme-toggle, .clock-widget, :root[data-theme="light"] .theme-toggle, :root[data-theme="light"] .clock-widget { background:var(--chrome-button); border-color:var(--chrome-edge); color:var(--chrome-ink); backdrop-filter:blur(16px); }
+.start-button, .explorer-launcher, .active-app, :root[data-theme="light"] .start-button, :root[data-theme="light"] .explorer-launcher, :root[data-theme="light"] .active-app { background:var(--chrome-button); border-color:var(--chrome-edge); color:var(--chrome-ink); box-shadow:0 2px 5px #241b3220; }
+.search, :root[data-theme="light"] .search { background:transparent; border-color:var(--chrome-edge); }
+.search input, :root[data-theme="light"] .search input { color:var(--chrome-ink); }
+.search input::placeholder, :root[data-theme="light"] .search input::placeholder { color:var(--chrome-ink); opacity:.7; }
+.start-button:hover, .start-button[aria-expanded="true"], .explorer-launcher:hover, .theme-toggle:hover, :root[data-theme="light"] .start-button:hover, :root[data-theme="light"] .start-button[aria-expanded="true"], :root[data-theme="light"] .explorer-launcher:hover, :root[data-theme="light"] .theme-toggle:hover { background:var(--chrome-hover); }
+.explorer-launcher svg { stroke:currentColor; }
+:root[data-theme="dark"] .desktop-icon span { background:#61566dd9; color:#fff8f3; }
+:root[data-theme="dark"] .window-bar, :root[data-theme="dark"] .journal-bar { background:linear-gradient(110deg,#39304f,#514361); color:#f5edf9; border-color:#847098; }
+:root[data-theme="dark"] .window-controls button { background:#625171; color:#fff6ff; border-color:#9681a7; }
+/* App content remains a light reading surface beneath the night title bar. */
+:root[data-theme="dark"] dialog, :root[data-theme="dark"] .music-journal { color-scheme:light; }
+.welcome p, :root[data-theme="light"] .welcome p { color:#fff6e4; text-shadow:0 2px 8px #3e30455c; }
+@media(prefers-reduced-motion:no-preference) { .taskbar, .theme-toggle, .clock-widget, .window-bar, .desktop-icon span { transition:background-color .25s ease,color .25s ease,border-color .25s ease; } }
+
+/* Day photo and its matched night edit share one frame, scale, and anchor. */
+:root { --skyline-sky:#151d48; }
+:root[data-theme="light"] { --skyline-sky:#b6a6cb; }
+.wallpaper, :root[data-theme="light"] .wallpaper {
+  background:var(--skyline-sky);
+  overflow:hidden;
+}
+.wallpaper::before, .wallpaper::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+/* The same soft fill accommodates screens taller than the photographs. */
+.wallpaper::before {
+  background:var(--skyline-photo) center bottom / cover no-repeat;
+  filter:blur(28px);
+  transform:scale(1.08);
+  opacity:.45;
+}
+.wallpaper::after {
+  background:var(--skyline-photo) center bottom / 100% auto no-repeat;
+}

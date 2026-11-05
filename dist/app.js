@@ -13,7 +13,9 @@ const explorerTree = {
       {id:'project-cpu',name:'32-bit RISC-V Processor',kind:'file',app:'projects',projectId:'cpu',keywords:'RV32I CPU processor'},
       {id:'project-robot',name:'Delivery Robot PCB',kind:'file',app:'projects',projectId:'bot',keywords:'autonomous robotics STM32'},
       {id:'project-vest',name:'VibraSound Vest',kind:'file',app:'projects',projectId:'vest',keywords:'wearable music vibrations'},
-      {id:'project-agent',name:'AI Verilog Optimization Agent',kind:'file',app:'projects',projectId:'hackathon',keywords:'CPU design hackathon'}
+      {id:'project-hackathon',name:'Hackathon',kind:'folder',keywords:'hack the chip competition',children:[
+        {id:'project-agent',name:'AI Verilog Optimization Agent',kind:'file',app:'projects',projectId:'hackathon',keywords:'Verilog optimization hackathon'}
+      ]}
     ]},
     {id:'music',name:'Music',kind:'folder',keywords:'songs tracks instruments',children:[
       {id:'instruments',name:'Instruments',kind:'folder',keywords:'crystal gallery instruments',children:[
@@ -54,7 +56,7 @@ const pages = {
   projects: projectsPage,
   resume: `<section class="resume-reader" aria-label="Cristy Zhang’s resume"><div class="resume-toolbar"><span class="resume-document-label">Cristy Zhang <span>· PDF</span></span><div class="resume-actions"><a href="assets/Cristy-Zhang-Resume-First-Page.pdf" target="_blank" rel="noopener noreferrer">Open PDF <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><a class="resume-download" href="assets/Cristy-Zhang-Resume-First-Page.pdf" download="Cristy-Zhang-Resume.pdf">Download <span aria-hidden="true">↓</span></a></div></div><div class="resume-page-view"><img class="resume-page-image" src="assets/resume-first-page.png" alt="First page of Cristy Zhang's resume" width="1530" height="1980"></div><p class="resume-fallback">Page 1 of 1 · <a href="assets/Cristy-Zhang-Resume-First-Page.pdf" target="_blank" rel="noopener noreferrer">Open the resume directly<span class="sr-only"> (opens in a new tab)</span></a>.</p></section>`,
   contact: contactPage,
-  explorer: `<section class="file-explorer" aria-label="File Explorer"><div class="explorer-toolbar"><div class="explorer-history"><button type="button" data-explorer-back aria-label="Back" title="Back">‹</button><button type="button" data-explorer-forward aria-label="Forward" title="Forward">›</button></div><nav class="explorer-breadcrumbs" id="explorer-breadcrumbs" aria-label="Folder path"></nav><label class="explorer-search"><svg aria-hidden="true"><use href="#i-search"/></svg><input type="search" id="explorer-search" placeholder="Search files, songs, places…" aria-label="Search Explorer"></label></div><div class="explorer-body"><nav class="explorer-sidebar" aria-label="Quick access"><button type="button" data-explorer-shortcut="desktop">Desktop</button><button type="button" data-explorer-shortcut="projects">Projects</button><button type="button" data-explorer-shortcut="music">Music</button><button type="button" data-explorer-shortcut="travel">Travel With Me</button></nav><section class="explorer-main"><div class="explorer-list-heading"><span>Name</span><span>Type</span></div><div id="explorer-items" class="explorer-items" role="listbox" aria-label="Files and folders"></div><p id="explorer-empty" class="explorer-empty" hidden>No matching items.</p><footer class="explorer-status" id="explorer-status" aria-live="polite"></footer></section></div></section>`,
+  explorer: `<section class="file-explorer" aria-label="File Explorer"><div class="explorer-toolbar"><div class="explorer-history"><button type="button" data-explorer-back aria-label="Back" title="Back">‹</button><button type="button" data-explorer-forward aria-label="Forward" title="Forward">›</button></div><nav class="explorer-breadcrumbs" id="explorer-breadcrumbs" aria-label="Folder path"></nav><label class="explorer-search"><svg aria-hidden="true"><use href="#i-search"/></svg><input type="search" id="explorer-search" placeholder="Search files, songs, places…" aria-label="Search Explorer"></label></div><div class="explorer-body"><nav class="explorer-sidebar" aria-label="Quick access"><button type="button" data-explorer-shortcut="desktop">Desktop</button><button type="button" data-explorer-shortcut="projects">Projects</button><button type="button" data-explorer-shortcut="music">Music</button><button type="button" data-explorer-shortcut="travel">Travel With Me</button></nav><section class="explorer-main"><div class="explorer-list-heading"><span>Name</span><span>Type</span></div><div id="explorer-items" class="explorer-items" role="group" aria-label="Files and folders"></div><p id="explorer-empty" class="explorer-empty" hidden>No matching items.</p><footer class="explorer-status" id="explorer-status" aria-live="polite"></footer></section></div></section>`,
   terminal: `<div class="terminal"><p>little-corner terminal [version 1.0]<br>Type “help” to see what’s here. ♡</p><div class="terminal-output" id="terminal-output" role="log" aria-live="polite"></div><form id="terminal-form"><label for="terminal-input">visitor ~ $</label><input id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command"></form></div>`
 };
 function toggleMenu(show) { menu.hidden = !show; start.setAttribute('aria-expanded', String(show)); }
@@ -67,7 +69,7 @@ function openApp(app, options = {}) {
     return;
   }
   toggleMusic(false);
-  const preserve = app === currentApp;
+  const preserve = app === currentApp && !options.refresh;
   if (app !== 'explorer') {
     dialog.style.removeProperty('left');
     dialog.style.removeProperty('top');
@@ -155,15 +157,18 @@ function setupExplorer() {
         .filter(({node, ancestors}) => node !== explorerTree && [node.name, node.keywords || '', ...ancestors.map(parent => parent.name)].join(' ').toLocaleLowerCase().includes(query))
         .map(({node, ancestors}) => ({node, parentPath: [...ancestors.map(parent => parent.id)], location: ancestors.map(parent => parent.name).join(' › ')}))
       : (current.children || []).map(node => ({node, parentPath: [...explorerPath], location:''}));
+    history.replaceState(null, '', '#files/' + explorerPath.map(encodeURIComponent).join('/'));
     list.replaceChildren();
     document.querySelector('#explorer-empty').hidden = entries.length > 0;
     for (const {node, parentPath, location} of entries) {
-      const row = document.createElement('button');
-      row.type = 'button';
+      const row = document.createElement(node.kind === 'folder' ? 'a' : 'button');
+      if (node.kind === 'folder') {
+        row.href = '#files/' + [...parentPath, node.id].map(encodeURIComponent).join('/');
+      } else {
+        row.type = 'button';
+      }
       row.className = 'explorer-item';
       row.dataset.explorerId = node.id;
-      row.setAttribute('role', 'option');
-      row.setAttribute('aria-selected', String(explorerSelected === node.id));
       const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       icon.setAttribute('aria-hidden', 'true');
       const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
@@ -182,18 +187,8 @@ function setupExplorer() {
       type.textContent = node.kind === 'folder' ? 'Folder' : node.href ? 'Web page' : 'App';
       row.append(icon, label, type);
       list.append(row);
-      row.addEventListener('click', () => {
-        explorerSelected = node.id;
-        list.querySelectorAll('.explorer-item').forEach(item => item.setAttribute('aria-selected', String(item === row)));
-        document.querySelector('#explorer-status').textContent = `${node.name} selected`;
-      });
-      row.addEventListener('dblclick', () => activate(node, parentPath));
-      row.addEventListener('keydown', event => {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          activate(node, parentPath);
-        }
-      });
+      // Native button clicks work with mouse, touch, Enter, and Space.
+      if (node.kind !== 'folder') row.addEventListener('click', () => activate(node, parentPath));
     }
     document.querySelector('#explorer-status').textContent = query
       ? `${entries.length} ${entries.length === 1 ? 'result' : 'results'}`
@@ -239,7 +234,6 @@ function setupExplorer() {
     });
   });
   render();
-  searchInput.focus();
 }
 document.addEventListener('click', e => {
   if (!e.target.closest('.music-folder, [data-app="music"]')) toggleMusic(false);
@@ -251,6 +245,28 @@ search.addEventListener('input', () => { toggleMenu(true); filterApps(search.val
 search.addEventListener('keydown', e => { if(e.key === 'Enter'){const first=menuApps.querySelector('button:not([hidden])');if(first)openApp(first.dataset.app);} });
 function updateClock(){ const now=new Date();document.querySelector('#date').textContent=now.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'}); const time=now.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'}); document.querySelector('#widget-time').textContent=time;document.querySelector('#tray-time').textContent=time; }
 updateClock();setInterval(updateClock,1000);
+function openExplorerHash() {
+  if (!location.hash.startsWith('#files/')) return;
+  let path;
+  try { path = location.hash.slice(7).split('/').map(decodeURIComponent); }
+  catch { return; }
+  if (path[0] !== 'desktop') return;
+  let folder = explorerTree;
+  for (const id of path.slice(1)) {
+    folder = folder.children?.find(child => child.id === id && child.kind === 'folder');
+    if (!folder) return;
+  }
+  if (path.join('/') !== explorerPath.join('/')) {
+    explorerBack.push([...explorerPath]);
+    explorerForward = [];
+  }
+  explorerPath = path;
+  explorerSearch = '';
+  explorerSelected = null;
+  openApp('explorer', {refresh:true});
+}
+window.addEventListener('hashchange', openExplorerHash);
+openExplorerHash();
 if (location.hash === '#music') openApp('music');
 function setupTerminal(){
  const form=document.querySelector('#terminal-form'),input=document.querySelector('#terminal-input'),output=document.querySelector('#terminal-output');
@@ -299,17 +315,4 @@ window.addEventListener('resize', () => {
   dialog.style.left = `${Math.max(0, Math.min(innerWidth - rect.width, rect.left))}px`;
   dialog.style.top = `${Math.max(0, Math.min(innerHeight - 80, rect.top))}px`;
   dialog.style.margin = '0';
-});
-// Gentle synthesized rain: activated only by the visitor; no external audio needed.
-let audioContext, audioSource, audioGain;
-const soundButton=document.querySelector('#sound-button');
-soundButton.addEventListener('click',async()=>{
- const enabled=soundButton.getAttribute('aria-pressed')!=='true';
- try {
-  if(enabled){
-   if(!audioContext){const AudioCtx=window.AudioContext||window.webkitAudioContext;if(!AudioCtx)throw new Error('Audio unavailable');audioContext=new AudioCtx();const buffer=audioContext.createBuffer(1,audioContext.sampleRate*4,audioContext.sampleRate),data=buffer.getChannelData(0);let last=0;for(let i=0;i<data.length;i++){last=(last+Math.random()*.04-.02)/1.02;data[i]=last*3.5;}audioSource=audioContext.createBufferSource();audioSource.buffer=buffer;audioSource.loop=true;audioGain=audioContext.createGain();audioGain.gain.value=.24;audioSource.connect(audioGain);audioGain.connect(audioContext.destination);audioSource.start();}
-   await audioContext.resume();
-  }else if(audioContext)await audioContext.suspend();
-  soundButton.setAttribute('aria-pressed',String(enabled));soundButton.setAttribute('aria-label',enabled?'Turn ambient sound off':'Turn ambient sound on');soundButton.title=enabled?'Turn ambient sound off':'Turn ambient sound on';soundButton.querySelector('.sound-off').hidden=enabled;
- }catch{soundButton.title='Ambient audio is unavailable in this browser';}
 });
